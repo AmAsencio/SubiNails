@@ -8,10 +8,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/componentes/scripts/menuHamburguesa.js"></script>
 </head>
 <body>
     <div class="container">
-        <h1>Subi Nail Studio</h1>
+        <header>
+            <h1>Subi Nail Studio</h1>
+            <!-- Icono del menú hamburguesa -->
+            <button class="menu-toggle" id="menu-toggle">
+                &#9776;
+            </button>
+
+            <!-- Menú desplegable -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#">Pedir cita</a></li>
+                <li><a href="#">Galería</a></li>
+                <li><a href="#">Contactar</a></li>
+            </ul>
+        </header>
+
+        
         <h2>¡Mira mis proyectos!</h2>
         <p>Aquí tienes un ejemplo de mis trabajos.</p>
         <a href="#" class="cta">Ir a la galería</a>
@@ -32,32 +49,16 @@
                     <p>Desde $350</p>
                 </div>
             </div>
-            <div class="service">
-                <img src="manicura.jpg" alt="Manicura Tradicional">
-                <div class="service-info">
-                    <h3>Manicura Tradicional</h3>
-                    <p>Desde $200</p>
-                </div>
-            </div>
-            <div class="service">
-                <img src="semipermanente.jpg" alt="Esmaltado Semi Permanente">
-                <div class="service-info">
-                    <h3>Esmaltado Semi Permanente</h3>
-                    <p>Desde $250</p>
-                </div>
-            </div>
         </div>
-        
         <h2>¡Pide las tuyas ya!</h2>
-        <p>Ahora vendo diseños personalizados Press On.</p>
         <a href="#" class="cta">Press On</a>
-        
         <h2>¡Contáctame!</h2>
         <a href="#" class="cta">Ir a contacto</a>
-        
         <div class="footer">
             <p>Bilbao, España | +34 666 66 66 66 | info@nailstudio.com</p>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

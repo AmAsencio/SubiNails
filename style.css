@@ -7,6 +7,13 @@ body {
     text-align: center;
 }
 
+.relleno {
+    border-color: #f8a5c2;
+    border-width: 1.5px;
+    border-style: solid;
+
+}
+
 /* Estilos para el menú hamburguesa */
 .menu-toggle {
     display: none;
@@ -138,6 +145,21 @@ h1 {
     background: #e14b6a;
 }
 
+.cta-small {
+    background: #ff6584;
+    color: white;
+    padding: 15px;
+    font-size: 12px;
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.cta-small:hover {
+    background: #e14b6a;
+}
+
 /* Estilos del pie de página */
 .footer {
     background: #f8a5c2;
@@ -160,14 +182,14 @@ h1 {
 
 .slider-container {
     display: flex;
+    width: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .slider-image {
-    width: 100%;
+    min-width: 100%;
     object-fit: cover;
     height: 500px;
-    border-radius: 10px;
 }
 
 /* Estilos para los botones del slider */
@@ -228,9 +250,20 @@ h1 {
     }
 
     .services {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        gap: 20px; 
     }
+
+    .service {
+        flex: 1 1 calc(33.33% - 20px); 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+
 
     .service img {
         width: 90px;
@@ -281,38 +314,40 @@ h1 {
 @media (min-width: 1024px) {
     .container {
         max-width: 1200px;
-        /* Aumentamos el tamaño del contenedor en escritorio */
         padding: 50px 30px;
-        /* Más padding para darle más espacio */
     }
 
     .services {
-        grid-template-columns: repeat(3, 1fr);
-        /* 3 columnas en escritorio */
-        gap: 20px;
-        /* Más espacio entre las columnas */
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; 
+    }
+
+    .service {
+        flex-basis: calc(33.33% - 20px); 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .service img {
-        width: 100px;
-        /* Imágenes un poco más grandes */
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        border-radius: 10%;
     }
 
     .service-info h3 {
         font-size: 22px;
-        /* Mayor tamaño de texto */
     }
 
     .cta {
         font-size: 22px;
         width: 60%;
-        /* El botón será más grande en escritorio */
     }
 
     .menu-toggle {
         display: none;
-        /* El botón hamburguesa se oculta en escritorio */
     }
 
     .nav-menu {
@@ -321,6 +356,7 @@ h1 {
         background: #ff6584;
         text-align: center;
         margin-top: 20px;
+        border-radius: 0%;
     }
 
     .nav-menu li {
@@ -337,7 +373,6 @@ h1 {
 
     .image-slider {
         display: block;
-        /* El slider se muestra en escritorio */
     }
 }
 
@@ -348,11 +383,16 @@ h1 {
         display: block;
     }
 
+    .footer {
+        border-radius: 0%;
+    }
+
     header {
         position: relative;
         justify-content: space-between;
         align-items: center;
         z-index: 2;
+        background-color: #fde2e4;
     }
 
     .container {
@@ -388,24 +428,31 @@ h1 {
 
     .service:nth-child(odd) {
         flex-direction: row;
-        justify-content: flex-start;
-        /* Alinea la imagen a la izquierda y el texto a la izquierda */
         text-align: left;
     }
 
     .service:nth-child(even) {
         flex-direction: row-reverse;
-        justify-content: flex-end;
-        /* Alinea la imagen a la derecha y el texto a la derecha */
         text-align: right;
-        /* Alinea el texto a la derecha */
+    }
+
+    .service:nth-child(even) .service-info {
+        text-align: right;
     }
 
     .service img {
         width: 70px;
         height: 70px;
+    }
+
+    .service:nth-child(odd) img {
         margin-right: 10px;
-        /* Asegura que haya espacio entre la imagen y el texto */
+        margin-left: 0;
+    }
+
+    .service:nth-child(even) img {
+        margin-left: 10px;
+        margin-right: 0;
     }
 
     .service-info {
@@ -420,5 +467,23 @@ h1 {
 
     .service-info p {
         font-size: 14px;
+    }
+
+    .image-slider {
+        display: block;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    .slider-image {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .prev,
+    .next {
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 20%;
     }
 }

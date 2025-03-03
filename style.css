@@ -16,13 +16,10 @@ body {
     border: none;
     position: absolute;
     top: 50%;
-    /* Coloca el botón en la mitad de la altura */
     left: 20px;
     transform: translateY(-50%);
-    /* Ajusta para centrar verticalmente */
     padding: 15px;
     border-radius: 50%;
-    /* Circular por defecto */
     transition: all 0.3s ease;
 }
 
@@ -30,6 +27,7 @@ body {
     border-radius: 100%;
     transform: translateY(-50%) scale(1.1);
 }
+
 
 /* Menú para móviles */
 .nav-menu {
@@ -79,9 +77,6 @@ body {
 h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 32px;
-    margin-bottom: 5px;
-    position: relative;
-    z-index: 1;
 }
 
 /* Servicios y contenido */
@@ -99,6 +94,8 @@ h1 {
     background: #fff5f8;
     border-radius: 10px;
 }
+
+
 
 .service img {
     width: 80px;
@@ -173,45 +170,71 @@ h1 {
     border-radius: 10px;
 }
 
-button {
+/* Estilos para los botones del slider */
+
+.prev {
     position: absolute;
     top: 50%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #e14b6a;
+    background-color: #ff6584;
+    color: white;
     font-size: 30px;
     border: none;
-    padding: 10px;
+    padding: 15px;
     cursor: pointer;
-    border-radius: 50%;
+    border-radius: 100%;
     transform: translateY(-50%);
-}
-
-button:hover {
-    background-color: #fff5f8
-}
-
-.prev {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 8px;
     left: 10px;
 }
 
 .next {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    background-color: #ff6584;
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 100%;
+    transform: translateY(-50%);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 8px;
     right: 10px;
 }
 
-/* Estilos para escritorio */
-@media (min-width: 768px) {
+.prev:hover,
+.next:hover {
+    background-color: #e14b6a;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.prev:focus,
+.next:focus {
+    outline: none;
+}
+
+/* Estilos para tablet (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
     .container {
-        max-width: 750px;
+        max-width: 900px;
+        padding: 40px 20px;
     }
 
     .services {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
 
     .service img {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
     }
 
     .service-info h3 {
@@ -220,9 +243,10 @@ button:hover {
 
     .cta {
         font-size: 20px;
-        width: 60%;
+        width: 70%;
     }
 
+    /* Menú visible en tablet */
     .menu-toggle {
         display: none;
     }
@@ -249,10 +273,75 @@ button:hover {
 
     .image-slider {
         display: block;
+        /* El slider se muestra en tablet */
     }
 }
 
-/* Estilos para tablet */
+/* Estilos para escritorio (a partir de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        /* Aumentamos el tamaño del contenedor en escritorio */
+        padding: 50px 30px;
+        /* Más padding para darle más espacio */
+    }
+
+    .services {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columnas en escritorio */
+        gap: 20px;
+        /* Más espacio entre las columnas */
+    }
+
+    .service img {
+        width: 100px;
+        /* Imágenes un poco más grandes */
+        height: 100px;
+    }
+
+    .service-info h3 {
+        font-size: 22px;
+        /* Mayor tamaño de texto */
+    }
+
+    .cta {
+        font-size: 22px;
+        width: 60%;
+        /* El botón será más grande en escritorio */
+    }
+
+    .menu-toggle {
+        display: none;
+        /* El botón hamburguesa se oculta en escritorio */
+    }
+
+    .nav-menu {
+        display: block;
+        position: static;
+        background: #ff6584;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .nav-menu li {
+        display: inline-block;
+        margin: 0 25px;
+    }
+
+    .nav-menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .image-slider {
+        display: block;
+        /* El slider se muestra en escritorio */
+    }
+}
+
+/* Estilos para los servicios en movil */
 @media (max-width: 767px) {
 
     .menu-toggle {
@@ -261,7 +350,14 @@ button:hover {
 
     header {
         position: relative;
+        justify-content: space-between;
+        align-items: center;
         z-index: 2;
+    }
+
+    .container {
+        padding: 0px;
+        border-radius: 0px;
     }
 
     .nav-menu {
@@ -269,7 +365,6 @@ button:hover {
         width: 100%;
         position: absolute;
         top: 60px;
-        /* Coloca el menú justo debajo del H1 */
         left: 0;
         background-color: #ff6584;
         text-align: left;
@@ -283,5 +378,47 @@ button:hover {
 
     .nav-menu li {
         margin: 10px 0;
+    }
+
+    /* Cambio de dirección para los servicios en móvil */
+    .services {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .service:nth-child(odd) {
+        flex-direction: row;
+        justify-content: flex-start;
+        /* Alinea la imagen a la izquierda y el texto a la izquierda */
+        text-align: left;
+    }
+
+    .service:nth-child(even) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        /* Alinea la imagen a la derecha y el texto a la derecha */
+        text-align: right;
+        /* Alinea el texto a la derecha */
+    }
+
+    .service img {
+        width: 70px;
+        height: 70px;
+        margin-right: 10px;
+        /* Asegura que haya espacio entre la imagen y el texto */
+    }
+
+    .service-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .service-info h3 {
+        font-size: 16px;
+    }
+
+    .service-info p {
+        font-size: 14px;
     }
 }

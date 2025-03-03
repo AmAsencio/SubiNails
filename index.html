@@ -1,49 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subi Nail Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/componentes/scripts/menuHamburguesa.js"></script>
+    <script src="/componentes/scripts/slider.js"></script>
 </head>
+
 <body>
-    <div class="container">
-        <header>
+
+    <header>
+        <div class="header-container">
             <h1>Subi Nail Studio</h1>
             <!-- Icono del menú hamburguesa -->
             <button class="menu-toggle" id="menu-toggle">
                 &#9776;
             </button>
+        </div>
+        <!-- Menú desplegable -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#">Pedir cita</a></li>
+            <li><a href="#">Galería</a></li>
+            <li><a href="#">Contactar</a></li>
+        </ul>
+    </header>
 
-            <!-- Menú desplegable -->
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#">Pedir cita</a></li>
-                <li><a href="#">Galería</a></li>
-                <li><a href="#">Contactar</a></li>
-            </ul>
-        </header>
+    <div class="container">
 
-        
+
+
         <h2>¡Mira mis proyectos!</h2>
+
+        <!-- Slider de imágenes (solo visible en modo escritorio) -->
+        <div class="image-slider" id="image-slider">
+            <div class="slider-container">
+                <img src="/imagenes/img1.jpg" alt="Uñas Acrílicas" class="slider-image">
+                <img src="/imagenes/img2.jpg" alt="Uñas de Gel" class="slider-image">
+                <img src="/imagenes/img3.jpg" alt="Diseños Creativos" class="slider-image">
+            </div>
+            <button class="prev" id="prev">&#10094;</button>
+            <button class="next" id="next">&#10095;</button>
+        </div>
+
         <p>Aquí tienes un ejemplo de mis trabajos.</p>
         <a href="#" class="cta">Ir a la galería</a>
-        
+
         <h2>Servicios</h2>
         <div class="services">
             <div class="service">
-                <img src="acrilicas.jpg" alt="Uñas Acrílicas">
+                <img src="/imagenes/Acrilicas1.png" alt="Uñas Acrílicas">
                 <div class="service-info">
                     <h3>Uñas Acrílicas</h3>
                     <p>Desde $300</p>
                 </div>
             </div>
             <div class="service">
-                <img src="gel.jpg" alt="Uñas de Gel">
+                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
+                <div class="service-info">
+                    <h3>Uñas de Gel</h3>
+                    <p>Desde $350</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
+                <div class="service-info">
+                    <h3>Uñas de Gel</h3>
+                    <p>Desde $350</p>
+                </div>
+            </div>
+            <div class="service">
+                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
                 <div class="service-info">
                     <h3>Uñas de Gel</h3>
                     <p>Desde $350</p>
@@ -61,4 +95,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

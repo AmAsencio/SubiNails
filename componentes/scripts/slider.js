@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function () {
     let currentIndex = 0;
     const images = $(".slider-image");
     const totalImages = images.length;

@@ -1,0 +1,114 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fde2e4;
+    color: #b83b5e;
+    text-align: center;
+}
+.container {
+    max-width: 400px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+h1, h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+.section {
+    margin: 20px 0;
+}
+.service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background: #fff5f8;
+    border-radius: 10px;
+}
+.service img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.service-info {
+    flex-grow: 1;
+    padding-left: 15px;
+    text-align: left;
+}
+.service-info h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.service-info p {
+    margin: 5px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #b83b5e;
+}
+.cta {
+    background: #ff6584;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 25px;
+    width: 80%;
+}
+.cta:hover {
+    background: #e14b6a;
+}
+.footer {
+    background: #f8a5c2;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    border-radius: 0 0 15px 15px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 700px;
+    }
+    .service img {
+        width: 100px;
+        height: 100px;
+    }
+    .service-info h3 {
+        font-size: 20px;
+    }
+    .cta {
+        font-size: 20px;
+        width: 60%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        max-width: 900px;
+        padding: 40px;
+    }
+    .service {
+        padding: 15px;
+    }
+    .service img {
+        width: 120px;
+        height: 120px;
+    }
+    .service-info h3 {
+        font-size: 22px;
+    }
+    .cta {
+        font-size: 22px;
+        width: 50%;
+    }
+}

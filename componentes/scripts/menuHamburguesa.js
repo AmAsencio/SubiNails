@@ -1,11 +1,9 @@
-const nav = document.querySelector("#nav");
-const abrir = document.querySelector("#abrir");
-const cerrar = document.querySelector("#cerrar");
+$(function () {
+    $('#abrir').on('click', function () {
+        $('#nav').addClass('visible');
+    });
 
-abrir.addEventListener("click", () => {
-    nav.classList.add("visible");
-})
-
-cerrar.addEventListener("click", () => {
-    nav.classList.remove("visible");
-})
+    $('#cerrar').on('click', function () {
+        $('#nav').removeClass('visible');
+    });
+});

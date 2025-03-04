@@ -5,19 +5,19 @@ $(function () {
 
     // Función para mostrar la imagen actual
     function showImage(index) {
-        const newTransformValue = -index * 100 + '%';
-        $(".slider-container").css('transform', 'translateX(' + newTransformValue + ')');
+        const newTransformValue = -index * 100 + "%";
+        $(".slider-container").css("transform", "translateX(" + newTransformValue + ")");
     }
 
     // Mostrar la siguiente imagen
-    $("#next").click(function() {
-        currentIndex = (currentIndex + 1) % totalImages; // Ciclo hacia la primera imagen
+    $("#next").on("click", function () {
+        currentIndex = (currentIndex + 1) % totalImages; 
         showImage(currentIndex);
     });
 
     // Mostrar la imagen anterior
-    $("#prev").click(function() {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Ciclo hacia la última imagen
+    $("#prev").on("click", function () {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         showImage(currentIndex);
     });
 

@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/componentes/scripts/menuHamburguesa.js"></script>
     <script src="/componentes/scripts/slider.js"></script>
+    <script src="/componentes/scripts/componenteService.js"></script>
 </head>
 
 <body>
@@ -48,47 +49,16 @@
             <button class="next" id="next">&#10095;</button>
         </div>
 
-        <div class="relleno"></div>
+        <hr class="separator">
         <h2>Servicios</h2>
-        <div class="services">
-            <div class="service">
-                <img src="/imagenes/Acrilicas1.png" alt="Uñas Acrílicas">
-                <div class="service-info">
-                    <h3>Uñas Acrílicas</h3>
-                    <p>Desde $300</p>
-                </div>
-                <a href="#" class="cta-small">Mas informacion</a>
-            </div>
-            <div class="service">
-                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
-                <div class="service-info">
-                    <h3>Uñas de Gel</h3>
-                    <p>Desde $350</p>
-                </div>
-                <a href="#" class="cta-small">Mas informacion</a>
-            </div>
-            <div class="service">
-                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
-                <div class="service-info">
-                    <h3>Uñas de Gel</h3>
-                    <p>Desde $350</p>
-                </div>
-                <a href="#" class="cta-small">Mas informacion</a>
-            </div>
-            
-            <div class="service">
-                <img src="/imagenes/Acrilicas1.png" alt="Uñas de Gel">
-                <div class="service-info">
-                    <h3>Uñas de Gel</h3>
-                    <p>Desde $350</p>
-                </div>
-                <a href="#" class="cta-small">Mas informacion</a>
-            </div>
-        </div>
-        <div class="relleno"></div>
+
+        <!--Contenedor de servicios traidos de componenteService.js-->
+        <div class="services" id="services-container"></div>
+
+        <hr class="separator">
         <h2>¡Pide las tuyas ya!</h2>
         <a href="#" class="cta">Press On</a>
-        <div class="relleno"></div>
+        <hr class="separator">
         <h2>¡Contáctame!</h2>
         <a href="#" class="cta">Ir a contacto</a>
         <div class="footer">

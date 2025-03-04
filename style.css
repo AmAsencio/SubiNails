@@ -7,11 +7,11 @@ body {
     text-align: center;
 }
 
-.relleno {
-    border-color: #f8a5c2;
-    border-width: 1.5px;
-    border-style: solid;
 
+.separator {
+    border: none;
+    border-top: 2px solid #f8a5c2;
+    margin: 10px;
 }
 
 /* Estilos para el menú hamburguesa */
@@ -68,16 +68,17 @@ body {
 /* Contenedor */
 .container {
     max-width: 1000px;
-    height: auto;
     margin: 0 auto;
     background: white;
-    padding: 40px 20px 20px 20px;
+    padding: 40px 20px; 
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding-bottom: 60px; 
+    box-sizing: border-box;
 }
 
 /* Estilos del logo */
@@ -166,6 +167,10 @@ h1 {
     padding: 10px;
     color: white;
     font-size: 14px;
+    text-align: center;
+    position: relative;
+    z-index: 1; 
+    margin-top: 20px; 
     border-radius: 0 0 15px 15px;
 }
 
@@ -306,7 +311,6 @@ h1 {
 
     .image-slider {
         display: block;
-        /* El slider se muestra en tablet */
     }
 }
 
@@ -314,13 +318,14 @@ h1 {
 @media (min-width: 1024px) {
     .container {
         max-width: 1200px;
-        padding: 50px 30px;
+        padding:0;
     }
 
     .services {
         display: flex;
         flex-wrap: wrap; 
         justify-content: center; 
+        text-align: center;
         gap: 20px; 
     }
 
@@ -332,7 +337,7 @@ h1 {
     }
 
     .service img {
-        width: 150px;
+        width: 250px;
         height: 150px;
         border-radius: 10%;
     }
@@ -381,6 +386,10 @@ h1 {
 
     .menu-toggle {
         display: block;
+    }
+
+    .cta-small {
+        display: none;
     }
 
     .footer {
@@ -441,8 +450,8 @@ h1 {
     }
 
     .service img {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
     }
 
     .service:nth-child(odd) img {
@@ -462,11 +471,11 @@ h1 {
     }
 
     .service-info h3 {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .service-info p {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .image-slider {

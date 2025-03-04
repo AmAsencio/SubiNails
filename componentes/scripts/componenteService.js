@@ -16,7 +16,6 @@ $(function () {
                     <h3>${service.title}</h3>
                     <p>${service.price}</p>
                 </div>
-                <a href="#" class="cta-small">Más información</a>
             </div>
         `;
         $servicesContainer.append(serviceElement);

@@ -45,7 +45,8 @@ body {
 .separator {
     border: none;
     border-top: 2px solid #f8a5c2;
-    margin: 10px;
+    margin: 10px 0px 20px;
+    
 }
 
 /* Contenedor */
@@ -54,7 +55,6 @@ body {
     margin: 0 auto;
     background: white;
     padding: 40px 20px; 
-    border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     display: flex;
@@ -96,17 +96,16 @@ h1 {
 .service-info {
     flex-grow: 1;
     padding-left: 15px;
-    text-align: left;
 }
 
 .service-info h3 {
-    margin: 0;
     font-size: 18px;
 }
 
 .service-info p {
     margin: 5px 0 0;
     font-size: 16px;
+    margin-top: 20px;
     font-weight: bold;
     color: #b83b5e;
 }
@@ -152,7 +151,6 @@ h1 {
     position: relative;
     z-index: 1; 
     margin-top: 20px; 
-    border-radius: 0 0 15px 15px;
 }
 
 /* Estilos para el slider */
@@ -190,7 +188,7 @@ h1 {
     border: none;
     padding: 15px;
     cursor: pointer;
-    border-radius: 100%;
+    border-radius: 20%;
     transform: translateY(-50%);
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -208,7 +206,7 @@ h1 {
     border: none;
     padding: 15px;
     cursor: pointer;
-    border-radius: 100%;
+    border-radius: 20%;
     transform: translateY(-50%);
     transition: background-color 0.3s ease, transform 0.2s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -254,12 +252,14 @@ h1 {
     }
 
     .service img {
-        width: 90px;
-        height: 90px;
+        width: 150px;
+        height: 150px;
     }
 
     .service-info h3 {
         font-size: 20px;
+        margin-top: 20px;
+        text-align: center;
     }
 
     .cta {
@@ -310,12 +310,14 @@ h1 {
 
     .service img {
         width: 250px;
-        height: 150px;
+        height: 250px;
         border-radius: 10%;
     }
 
     .service-info h3 {
-        font-size: 22px;
+        font-size: 22px;     
+        margin-top: 20px;
+        text-align: center;
     }
 
     .cta {
@@ -323,7 +325,10 @@ h1 {
         width: 60%;
     }
 
- 
+    .image-slider {
+        display: block;
+    }
+
 }
 
 /* Estilos para los servicios en movil */
@@ -345,23 +350,27 @@ h1 {
         color: #b83b5e;
     }
 
-    .nav {
-        opacity: 0;
-        visibility: hidden;
+    .abrir-menu, .cerrar-menu {
+        transition: transform 0.2s ease-in-out; 
+    }
 
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 1rem;
-        position: absolute;
+    .cerrar-menu {
+        margin-bottom: 15px;
+    }
+
+    .nav {
+        position: fixed; 
         top: 0;
-        left: 0;
+        left: -100%; 
         bottom: 0;
+        width: 200px; 
         background-color: #fde2e4;
         padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .5);
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
         z-index: 3;
+        display: none; 
     }
+    
 
     .nav.visible {
         opacity: 1;

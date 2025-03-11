@@ -2,76 +2,137 @@
 <html lang="es">
 
 <head>
+    <!-- Configuración de caracteres y vista adaptable a dispositivos móviles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subi Nail Studio</title>
+    
+    <!-- Iconos de Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Archivo CSS externo -->
     <link rel="stylesheet" href="style.css">
+    
+    <!-- jQuery y script externo -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/componentes/scripts/menuHamburguesa.js"></script>
-    <script src="/componentes/scripts/slider.js"></script>
-    <script src="/componentes/scripts/componenteService.js"></script>
+    <script src="https://scripts-subinails.s3.us-east-1.amazonaws.com/script.js"></script>
 </head>
 
 <body>
-
-
-
     <div class="container">
-
-        <header>
-
+        
+        <!-- Encabezado con logo, botón de login y menú de navegación -->
+        <header id="top">
             <button class="boton-login"><i class="bi bi-person-circle"></i></button>
-
             <h1>Subi Nail Studio</h1>
-
             <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
             <nav class="nav" id="nav">
                 <button class="cerrar-menu" id="cerrar"><i class="bi bi-x-lg"></i></button>
                 <ul class="nav-list">
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Contactame</a></li>
-                    <li><a href="#">Cita</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#pressOn">Novedades</a></li>
+                    <li><a href="#pedirCita">Cita</a></li>
                 </ul>
             </nav>
-    
         </header>
 
         <h2>¡Mira mis proyectos!</h2>
 
-        <!-- Slider de imágenes (solo visible en modo escritorio) -->
+        <!-- Slider de imágenes de proyectos -->
         <div class="image-slider" id="image-slider">
             <div class="slider-container">
-                <img src="/imagenes/img1.jpg" alt="Uñas Acrílicas" class="slider-image">
-                <img src="/imagenes/img2.jpg" alt="Uñas de Gel" class="slider-image">
-                <img src="/imagenes/img3.jpg" alt="Diseños Creativos" class="slider-image">
+                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-1.jpg" alt="Uñas Acrílicas" class="slider-image">
+                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-2.jpg" alt="Uñas de Gel" class="slider-image">
+                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-3.jpg" alt="Diseños Creativos" class="slider-image">
+                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-4.jpg" alt="Diseños Simples" class="slider-image">
+                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-5.jpg" alt="Uñas Almond" class="slider-image">
             </div>
+            <!-- Botones para controlar el slider -->
             <button class="prev" id="prev">&#10094;</button>
             <button class="next" id="next">&#10095;</button>
         </div>
 
         <hr class="separator">
-        <h2>Servicios</h2>
+        <h2 id="servicios">Servicios</h2>
 
-        <!--Contenedor de servicios traidos de componenteService.js-->
+        <!-- Contenedor donde se insertarán dinámicamente los servicios -->
         <div class="services" id="services-container"></div>
 
         <hr class="separator">
-        <h2>¡Pide las tuyas ya!</h2>
-        <a href="#" class="cta">Press On</a>
+
+        <!-- Sección de novedades sobre Press On -->
+        <section class="cta-section">
+            <h2 class="cta-title" id="pressOn">¡Novedad Press On!</h2>
+            <div class="cta-container">
+                <div class="cta-images" id="imgPressOn1">
+                    <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-press-on-1.JPG" alt="Producto Press On 1" class="cta-image">
+                </div>
+                <div class="cta-content">
+                    <p class="cta-description" id="cta-description"></p>
+                    <div class="cta-contacto-presson" id="cta-contacto-presson">
+                        <p class="cta-description-whatsaap" id="cta-whatsapp"></p>
+                        <p id="cta-slash"></p>
+                        <p class="cta-description-mail" id="cta-mail"></p>
+                    </div>
+                </div>
+                <div class="cta-images" id="imgPressOn2">
+                    <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-press-on-2.JPG" alt="Producto Press On 2" class="cta-image">
+                </div>
+            </div>
+        </section>
+
         <hr class="separator">
-        <h2>¡Contáctame!</h2>
-        <a href="#" class="cta">Ir a contacto</a>
-        <div class="footer">
-            <p>Bilbao, España | +34 666 66 66 66 | info@nailstudio.com</p>
-        </div>
+        <h2 id="pedirCita">Reserva tu cita ahora</h2>
+
+        <!-- Formulario de reserva de citas -->
+        <section class="cta-section-form">
+            <form class="form-cita" id="formulario">
+                <label for="ocasion">¿Para qué ocasión necesitas tus uñas?</label>
+                <select id="ocasion" name="ocasion" class="validable">
+                    <option value="">Selecciona una opción</option>
+                    <option value="dia_a_dia">Para el día a día</option>
+                    <option value="evento">Para un evento especial</option>
+                    <option value="nuevo">Solo quiero algo nuevo y diferente</option>
+                </select>
+                
+                <label for="estilo">¿Qué estilo te gusta más?</label>
+                <select id="estilo" name="estilo" class="validable">
+                    <option value="">Selecciona una opción</option>
+                    <option value="natural">Natural</option>
+                    <option value="colorido">Colorido y llamativo</option>
+                    <option value="elegante">Elegante y minimalista</option>
+                    <option value="decorado">Con decoraciones y brillos</option>
+                </select>
+                
+                <label for="forma">¿Prefieres una forma específica?</label>
+                <select id="forma" name="forma" class="validable">
+                    <option value="">Selecciona una opción</option>
+                    <option value="almendradas">Almendradas</option>
+                    <option value="cuadradas">Cuadradas</option>
+                    <option value="ovaladas">Ovaladas</option>
+                    <option value="stiletto">Stiletto</option>
+                </select>
+                
+                <label for="fecha">¿Cuándo te gustaría tu cita?</label>
+                <input type="datetime-local" id="fecha" name="fecha" class="date-input">
+    
+                <button type="submit" class="cta-button">Reservar mi cita</button>
+            </form> 
+        </section>
     </div>
 
-</body>
+    <!-- Pie de página -->
+    <div class="footer">
+        <p>Bilbao, España | +34 666 66 66 66 | info@nailstudio.com</p>
+    </div>
 
+    <!-- Botón para volver arriba -->
+    <div class="volver-arriba" id="volver-arriba"><a href="#top">Volver Arriba‎ ‎ ‎ <i class="bi bi-chevron-double-up" aria-hidden="true"></i></a></div>
+</body>
 </html>

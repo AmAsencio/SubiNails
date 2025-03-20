@@ -1,9 +1,9 @@
 $(function () {
     const servicesData = [
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-acrilicas.jpg", title: "Uñas Acrílicas", price: "Desde $50" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-gel.jpg", title: "Uñas de Gel", price: "Desde $30" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/manicura-rusa.jpg", title: "Manicura Rusa", price: "Desde $40" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/decoracion-3d.png", title: "Decoración 3D", price: "Desde $70" }
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasacrilicas.webp", title: "Uñas Acrílicas", price: "Desde $50", direccion:"unasacrilicas" },
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasgel.webp", title: "Uñas de Gel", price: "Desde $30", direccion:"unasgel" },
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/manicurarusa.webp", title: "Manicura Rusa", price: "Desde $40", direccion:"manicurarusa" },
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/decoracion3d.webp", title: "Decoración 3D", price: "Desde $70", direccion:"decoracion3d" }
     ];
 
     const $servicesContainer = $("#services-container");
@@ -14,7 +14,13 @@ $(function () {
                 <img src="${service.img}" alt="${service.title}">
                 <div class="service-info">
                     <h3>${service.title}</h3>
-                    <p>${service.price}</p>
+                    <p class="price">${service.price}</p>
+                    <a class="learn-more" href="servicios/${service.direccion}.html">
+                        <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                        </span>
+                        <span class="button-text">Leer más</span>
+                    </a>
                 </div>
             </div>
         `;
@@ -54,7 +60,7 @@ $(function () {
 
     // Abrir el menú (solo en móvil)
     $('#abrir').on('click', function () {
-        if ($(window).width() <= 1024) {
+        if ($(window).width() <= 767) {
             $('#nav').stop(true, true).css('left', '-100%').show().animate({ left: '0' }, 300);
             $('body').addClass('no-scroll');
             $('body').addClass('menu-abierto');
@@ -63,7 +69,18 @@ $(function () {
 
     // Cerrar el menú (solo en móvil)
     $('#cerrar').on('click', function () {
-        if ($(window).width() <= 1024) {
+        if ($(window).width() <= 767) {
+            $('#nav').animate({ left: '-100%' }, 300, function () {
+                $(this).hide();
+                $('body').removeClass('no-scroll');
+                $('body').removeClass('menu-abierto');
+            });
+        }
+    });
+
+    // Cerrar el menu al seleccionar una opcion 
+    $('#nav a').on('click', function () {
+        if ($(window).width() <= 768) {
             $('#nav').animate({ left: '-100%' }, 300, function () {
                 $(this).hide();
                 $('body').removeClass('no-scroll');
@@ -204,7 +221,10 @@ $(function () {
     });
     
     $(document).on('submit', '#formulario', function(event) {
+        event.preventDefault(); // Detiene el envío del formulario
+    
         let valido = true;
+    
         $('.validable').each(function() {
             if (!$(this).val()) {
                 $(this).css('border', '2px solid red');
@@ -214,7 +234,6 @@ $(function () {
             }
         });
     
-        // Verificar si el campo de fecha está vacío (se considera vacío si es una cadena vacía)
         let fecha = $('#fecha').val();
         if (!fecha) {
             $('#fecha').css('border', '2px solid red');
@@ -224,10 +243,84 @@ $(function () {
         }
     
         if (!valido) {
-            event.preventDefault();
+            return; // Si hay errores, no mostramos el modal
         }
+    
+        // Obtener los valores seleccionados
+        let ocasion = $('#ocasion').val();
+        let estilo = $('#estilo').val();
+        let forma = $('#forma').val();
+        let metodo = $('#metodo').val();
+        let fechaSeleccionada = $('#fecha').val();
+    
+        // Crear el mensaje de resumen
+        let mensajeResumen = `
+            <br><br>
+            <strong>Fecha:</strong> ${fechaSeleccionada} <br><br>
+            <strong>Ocasión:</strong> ${ocasion} <br><br>
+            <strong>Estilo:</strong> ${estilo} <br><br>
+            <strong>Forma:</strong> ${forma} <br><br>
+            <strong>Método:</strong> ${metodo} <br><br>
+        `;
+    
+        // Mostrar el resumen en el modal
+        $('#resumenTexto').html(mensajeResumen);
+        $('#resumenModal').fadeIn();
+    
+        // Limpiar eventos previos y manejar la confirmación correctamente
+        $('#confirmarReserva').off('click').on('click', function() {
+            $('#resumenModal').fadeOut(); // Cierra el modal
+    
+            // Esperar a que el modal se cierre completamente antes de enviar el formulario
+            setTimeout(function() {
+                document.getElementById("formulario").submit(); 
+            }, 300);
+        });
+    
+        // Para cerrar el modal al hacer clic en la "X"
+        $('.close').off('click').on('click', function() {
+            $('#resumenModal').fadeOut();
+        });
+    
+        // Cerrar el modal si el usuario hace clic fuera de él
+        $(window).off('click').on('click', function(e) {
+            if ($(e.target).is('#resumenModal')) {
+                $('#resumenModal').fadeOut();
+            }
+        });
+    });
+
+    // Loader de la pagina web
+    $(document).ready(function () {
+        $('body').addClass('loading');
+    
+        $(window).on('load', function () {
+            console.log("Página completamente cargada, ocultando loader...");
+            
+            setTimeout(function () {
+                $('#loading-screen').fadeOut(800, function () {
+                    $(this).remove();
+                    $('body').removeClass('loading');
+                    console.log("Loader eliminado correctamente.");
+                });
+            }, 500);
+        });
+    
+        // Si después de 5 segundos el loader sigue visible, lo forzamos a desaparecer
+        setTimeout(function () {
+            if ($('#loading-screen').is(':visible')) {
+                console.log("Loader aún visible, forzando eliminación...");
+                $('#loading-screen').fadeOut(800).promise().done(function () {
+                    $(this).remove();
+                    $('body').removeClass('loading');
+                    console.log("Loader eliminado a la fuerza.");
+                });
+            }
+        }, 2000); //segundos
     });
     
-
-
+    
+    
+    
+    
 });

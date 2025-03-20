@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #fff5f8;
+    margin-bottom: 20px;
+}
+
+#top {
+    position: sticky;
+    top: 0;
+    background-color: #fff5f8;
+    z-index: 4;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+/* Agregar sombra cuando el encabezado se activa en sticky */
+#top.sticky {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hacer que el menu desaparezca cuando el menu en movil se abre */
+body.menu-abierto .volver-arriba {
+    display: none;
+}
+
+h2 {
+    scroll-margin-top: 115px;
+}
+
+body:not(.menu-abierto) .volver-arriba {
+    display: block;
+}
+
+/* Loader por si la pagina web no se carga completamente */
+.loader {
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    position: relative;
+}
+
+.loader:before {
+    content: '';
+    width: 48px;
+    height: 5px;
+    background: #f0808050;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    border-radius: 50%;
+    animation: shadow324 0.5s linear infinite;
+}
+
+.loader:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #f08080;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    animation: jump7456 0.5s linear infinite;
+}
+
+@keyframes jump7456 {
+    15% {
+        border-bottom-right-radius: 3px;
+    }
+
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+        transform: translateY(18px) scale(1, .9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+@keyframes shadow324 {
+
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.2, 1);
+    }
+}
+
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #fde2e4; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+}
+
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Bloquear el scroll mientras carga */
+body.loading {
+    overflow: hidden;
+}
+
+/* Estilo boton volver arriba */
+.button-volver-arriba {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ff6584;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 0px 4px rgba(230, 230, 233, 0.253);
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+    position: relative;
+}
+
+.svgIcon {
+    width: 12px;
+    transition-duration: 0.3s;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.button-volver-arriba:hover {
+    width: 140px;
+    border-radius: 50px;
+    transition-duration: 0.3s;
+    background-color: #ff6584;
+    align-items: center;
+}
+
+.button-volver-arriba:hover .svgIcon {
+    transition-duration: 0.3s;
+    transform: translateY(-200%);
+}
+
+.button-volver-arriba::before {
+    position: absolute;
+    bottom: -20px;
+    content: "Back to Top";
+    color: white;
+    font-size: 0px;
+}
+
+.button-volver-arriba:hover::before {
+    font-size: 13px;
+    opacity: 1;
+    bottom: unset;
+    transition-duration: 0.3s;
+}
+
+/* Otros estilos CSS siguen igual */
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+
+.volver-arriba a {
+    display: flex;
+    justify-content: space-between;
+    background: #ff6584;
+    color: white;
+    padding: 0.2rem 1rem;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px solid #f8a5c2;
+    text-decoration: none;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #b83b5e;
+    font-size: 18px;
+
+}
+
+.abrir-menu,
+.cerrar-menu {
+    display: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fde2e4;
+    color: #b83b5e;
+    text-align: center;
+}
+
+.separator {
+    border: none;
+    border-top: 2px solid #f8a5c2;
+    margin: 10px 20px 20px;
+
+}
+
+/* Contenedor */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+}
+
+/* Estilos del logo */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+}
+
+.cta-section-form {
+    text-align: center;
+    padding: 30px;
+}
+
+/* Botón */
+.cta-button {
+    background: #ff6584;
+    color: white;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    background: #e14b6a;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos del pie de página */
+.footer {
+    background: #f8a5c2;
+    padding: 30px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+}
+
+/*Formulario pedir cita*/
+
+label {
+    font-weight: bold;
+    display: block;
+    margin: 15px 0 5px;
+}
+
+select,
+.date-input {
+    width: 40%;
+    padding: 10px;
+    border: 2px solid #f8a5c2;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.form-cita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos de la modal de cita confirmada */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+button#confirmarReserva {
+    background-color: #f8a5c2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#confirmarReserva:hover {
+    background-color: #e07a9a;
+}
+
+
+
+/* Estilos para tablet (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 900px;
+        padding: 0;
+    }
+
+    .footer {
+        border-radius: 0;
+    }
+
+    /*Select y date input en tablet*/
+    select,
+    .date-input {
+        width: 60%;
+    }
+}
+
+/* Estilos para escritorio (a partir de 1024px) */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+        padding: 0;
+    }
+
+}
+
+/* Estilos para los servicios en movil */
+@media (max-width: 767px) {
+
+    header {
+        flex-direction: row-reverse;
+    }
+
+    .abrir-menu,
+    .cerrar-menu {
+        display: block;
+        border: 0;
+        font-size: 2.5rem;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    .abrir-menu,
+    .cerrar-menu {
+        color: #b83b5e;
+    }
+
+    .abrir-menu,
+    .cerrar-menu {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .cerrar-menu {
+        margin-bottom: 15px;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        bottom: 0;
+        width: 200px;
+        background-color: #fde2e4;
+        padding: 2rem;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        display: none;
+    }
+
+
+    .nav.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .nav-list li a {
+        color: #b83b5e;
+
+    }
+
+    .footer {
+        border-radius: 0%;
+    }
+
+    .container {
+        padding: 0px;
+        border-radius: 0px;
+    }
+
+    /*volver arriba*/
+    .volver-arriba {
+        right: 10px;
+    }
+
+    /*Select y date input en movil*/
+    select,
+    .date-input {
+        width: 60%;
+    }
+
+}

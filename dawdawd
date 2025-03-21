@@ -216,12 +216,7 @@ body.loading {
     text-decoration: none;
     color: #b83b5e;
     font-size: 18px;
-    transition: all ease-in-out 0.3s;
 
-}
-
-.nav-list li a:hover {
-    transform: translateY(-3px);
 }
 
 .abrir-menu,
@@ -1028,10 +1023,6 @@ button#confirmarReserva:hover {
     select,
     .date-input {
         width: 60%;
-    }
-
-    .nav-list li a:hover {
-        transform: translateY(0px);
     }
 
 }

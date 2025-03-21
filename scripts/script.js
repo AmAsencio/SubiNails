@@ -15,6 +15,8 @@ $(function () {
                 <div class="service-info">
                     <h3>${service.title}</h3>
                     <p class="price">${service.price}</p>
+                </div>
+                <div>
                     <a class="learn-more" href="servicios/${service.direccion}.html">
                         <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
@@ -316,11 +318,7 @@ $(function () {
                     console.log("Loader eliminado a la fuerza.");
                 });
             }
-        }, 2000); //segundos
+        }, 1500); //segundos
     });
-    
-    
-    
-    
-    
+
 });

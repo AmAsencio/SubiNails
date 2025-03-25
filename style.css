@@ -172,7 +172,7 @@ body.loading {
 .button-volver-arriba::before {
     position: absolute;
     bottom: -20px;
-    content: "Back to Top";
+    content: "Volver Arriba";
     color: white;
     font-size: 0px;
 }
@@ -217,10 +217,13 @@ body.loading {
     color: #b83b5e;
     font-size: 18px;
     transition: all ease-in-out 0.3s;
-
 }
 
-.nav-list li a:hover {
+.nav-list li{
+    transition: all ease-in-out 0.3s;
+}
+
+.nav-list li:hover {
     transform: translateY(-3px);
 }
 
@@ -601,7 +604,6 @@ a:hover .button-text {
 
 
 /* Estilos para los botones del slider */
-
 .prev {
     position: absolute;
     top: 50%;
@@ -651,7 +653,6 @@ a:hover .button-text {
 }
 
 /*Formulario pedir cita*/
-
 label {
     font-weight: bold;
     display: block;
@@ -907,9 +908,12 @@ button#confirmarReserva:hover {
         align-items: start;
     }
 
+    .nav-list li:hover {
+        transform: translateY(0px);
+    }
+
     .nav-list li a {
         color: #b83b5e;
-
     }
 
     .cta-small {
@@ -1029,9 +1033,4 @@ button#confirmarReserva:hover {
     .date-input {
         width: 60%;
     }
-
-    .nav-list li a:hover {
-        transform: translateY(0px);
-    }
-
 }

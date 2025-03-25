@@ -176,7 +176,7 @@ body.loading {
 .button-volver-arriba::before {
     position: absolute;
     bottom: -20px;
-    content: "Back to Top";
+    content: "Volver Arriba";
     color: white;
     font-size: 0px;
 }
@@ -219,7 +219,14 @@ body.loading {
     text-decoration: none;
     color: #b83b5e;
     font-size: 18px;
+}
 
+.nav-list li {
+    transition: all ease-in-out 0.3s;
+}
+
+.nav-list li:hover {
+    transform: translateY(-3px);
 }
 
 .abrir-menu,
@@ -451,7 +458,10 @@ button#confirmarReserva:hover {
 
     .nav-list li a {
         color: #b83b5e;
+    }
 
+    .nav-list li:hover {
+        transform: translateY(0px);
     }
 
     .footer {
@@ -473,5 +483,4 @@ button#confirmarReserva:hover {
     .date-input {
         width: 60%;
     }
-
 }

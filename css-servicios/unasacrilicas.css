@@ -133,6 +133,15 @@ body.loading {
     overflow: hidden;
 }
 
+.volver-arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    width: fit-content;
+    font-size: 16px;
+    display: none;
+}
+
 /* Estilo boton volver arriba */
 .button-volver-arriba {
     width: 50px;
@@ -176,7 +185,7 @@ body.loading {
 .button-volver-arriba::before {
     position: absolute;
     bottom: -20px;
-    content: "Back to Top";
+    content: "Volver Arriba";
     color: white;
     font-size: 0px;
 }
@@ -219,7 +228,14 @@ body.loading {
     text-decoration: none;
     color: #b83b5e;
     font-size: 18px;
+}
 
+.nav-list li {
+    transition: all ease-in-out 0.3s;
+}
+
+.nav-list li:hover {
+    transform: translateY(-3px);
 }
 
 .abrir-menu,
@@ -262,6 +278,107 @@ body {
 h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 32px;
+}
+
+/* Carousel infinito */
+.carousel {
+    overflow: hidden;
+    width: 100%;
+    background-color: #fde2e4;
+    padding: 30px 0;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    box-shadow: 20px 35px 35px rgba(0, 0, 0, 0.1);
+    position: relative; 
+}
+
+/* Efecto de desvanecimiento en los bordes */
+.carousel::before,
+.carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none; 
+}
+
+.carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #fde2e4 0%, rgba(253, 226, 228, 0) 20%);
+}
+
+.carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #fde2e4 0%, rgba(253, 226, 228, 0) 20%);
+}
+
+.image-container {
+    display: flex;
+    width: fit-content;
+    animation: scroll 40s linear infinite;
+}
+
+/* Pausar el carrusel al pasar el ratón */
+.image-container:hover {
+    animation-play-state: paused;
+}
+
+.image-container img {
+    width: 200px;
+    height: 270px;
+    margin-right: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 1px solid #fde2e4;
+}
+
+/* Animación del carrusel */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 8)); /* Ancho exacto del primer conjunto de imágenes */
+    }
+}
+
+
+
+.cta-section {
+    text-align: center;
+    padding: 30px;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.cta-text {
+    text-align: justify;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-size: 18px;
+    color: #555;
+}
+
+
+.cta-image {
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.cta-image:hover {
+    transform: scale(1.05);
 }
 
 .cta-section-form {
@@ -451,7 +568,10 @@ button#confirmarReserva:hover {
 
     .nav-list li a {
         color: #b83b5e;
+    }
 
+    .nav-list li:hover {
+        transform: translateY(0px);
     }
 
     .footer {
@@ -473,5 +593,4 @@ button#confirmarReserva:hover {
     .date-input {
         width: 60%;
     }
-
 }

@@ -292,6 +292,7 @@ $(function () {
         });
     });
 
+    
     // Loader de la pagina web
     $(document).ready(function () {
         $('body').addClass('loading');
@@ -300,7 +301,7 @@ $(function () {
             console.log("Página completamente cargada, ocultando loader...");
             
             setTimeout(function () {
-                $('#loading-screen').fadeOut(800, function () {
+                $('#loading-screen').fadeOut(300, function () {
                     $(this).remove();
                     $('body').removeClass('loading');
                     console.log("Loader eliminado correctamente.");
@@ -308,11 +309,11 @@ $(function () {
             }, 500);
         });
     
-        // Si después de 5 segundos el loader sigue visible, lo forzamos a desaparecer
+        // Si después de 1.5 segundos el loader sigue visible, lo forzamos a desaparecer
         setTimeout(function () {
             if ($('#loading-screen').is(':visible')) {
                 console.log("Loader aún visible, forzando eliminación...");
-                $('#loading-screen').fadeOut(800).promise().done(function () {
+                $('#loading-screen').fadeOut(300).promise().done(function () {
                     $(this).remove();
                     $('body').removeClass('loading');
                     console.log("Loader eliminado a la fuerza.");
@@ -320,5 +321,6 @@ $(function () {
             }
         }, 1500); //segundos
     });
+    
 
 });

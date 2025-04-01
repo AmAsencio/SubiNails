@@ -292,7 +292,7 @@ $(function () {
         });
     });
 
-    
+    /** 
     // Loader de la pagina web
     $(document).ready(function () {
         $('body').addClass('loading');
@@ -321,6 +321,6 @@ $(function () {
             }
         }, 1500); //segundos
     });
-    
+    */
 
 });

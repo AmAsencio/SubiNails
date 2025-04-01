@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../css-servicios/unasacrilicas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/scripts/script.js"></script>
+    <script src="/scripts/script.js" defer></script>
 
 </head>
 
@@ -69,72 +70,319 @@
             </div>
         </div>
 
+        <!-- Sección de uñas acrílicas -->
         <section class="cta-section">
             <h2>Uñas Acrílicas de Alta Calidad</h2>
-            
+
             <div class="cta-container">
                 <div class="cta-text">
-                    <p>Las uñas acrílicas son una de las opciones más populares para lucir unas manos perfectas y cuidadas. Este tipo de uñas artificiales se realizan con un polvo acrílico que se mezcla con un líquido especial para crear una masa moldeable que se aplica sobre la uña natural.</p>
-                    <p>Una vez seca, se lima y se pule para darle forma y brillo. Las uñas acrílicas son muy resistentes y duraderas, por lo que son ideales para aquellas personas que quieren lucir unas uñas perfectas durante más tiempo.</p>
+                    <p>Las uñas acrílicas son una de las opciones más populares para lucir unas manos perfectas y
+                        cuidadas. Este tipo de uñas artificiales se realizan con un polvo acrílico que se mezcla con un
+                        líquido especial para crear una masa moldeable que se aplica sobre la uña natural.</p>
+                    <p>Una vez seca, se lima y se pule para darle forma y brillo. Las uñas acrílicas son muy resistentes
+                        y duraderas, por lo que son ideales para aquellas personas que quieren lucir unas uñas perfectas
+                        durante más tiempo.</p>
                     <a href="#reservar" class="cta-button">Reserva tu cita ahora</a>
                 </div>
                 <img src="/carousel/3.webp" alt="Uñas acrílicas de diseño" class="cta-image">
             </div>
         </section>
-        
-        
+
+        <!-- Sección de testimonios -->
+        <section class="testimonios">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="testimonio-container">
+                <div class="testimonio">
+                    <p>"¡Me encantaron mis uñas! Duran muchísimo y el diseño es precioso."</p>
+                    <p class="cliente">- María G.</p>
+                </div>
+                <div class="testimonio">
+                    <p>"El servicio es excelente y las uñas quedan perfectas. Volveré seguro."</p>
+                    <p class="cliente">- Laura S.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de preguntas frecuentes -->
+        <section class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Cuánto duran las uñas acrílicas?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Las uñas acrílicas suelen durar entre 2 y 3 semanas con el cuidado adecuado. Para mantenerlas
+                            en perfecto estado, recomendamos programar retoques cada 2-3 semanas dependiendo del
+                            crecimiento de tus uñas naturales.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Es doloroso el proceso de aplicación?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, el proceso no es doloroso. Puede haber una ligera sensación de presión durante la
+                            aplicación, pero nuestras profesionales trabajan con cuidado para asegurar tu comodidad en
+                            todo momento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Las uñas acrílicas dañan mis uñas naturales?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cuando son aplicadas y retiradas correctamente por profesionales, las uñas acrílicas no
+                            deberían dañar tus uñas naturales. En nuestro salón utilizamos productos de alta calidad y
+                            técnicas adecuadas para proteger la salud de tus uñas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Puedo realizar mis actividades normales con uñas acrílicas?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! Las uñas acrílicas son muy resistentes y te permitirán realizar la mayoría de
+                            tus actividades diarias sin problemas. Solo recomendamos tener precaución con actividades
+                            que puedan ejercer mucha presión sobre las uñas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <hr class="separator">
-        <h2 id="pedirCita">Reserva tu cita ahora</h2>
 
-        <div class="cta-section-form">
+        <!-- Sección de cuidados para uñas acrílicas -->
+        <section class="cuidados-section">
+            <div class="cuidados-header">
+                <h2>Cuidados para tus uñas acrílicas</h2>
+                <div class="decorative-line"></div>
+            </div>
 
-            <form class="form-cita" id="formulario">
-                <label for="ocasion">¿Para qué ocasión necesitas tus uñas?</label>
-                <select id="ocasion" name="ocasion" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="dia_a_dia">Para el día a día</option>
-                    <option value="evento">Para un evento especial</option>
-                    <option value="nuevo">Solo quiero algo nuevo y diferente</option>
-                </select>
+            <div class="cuidados-container">
+                <div class="cuidados-imagen">
+                    <div class="imagen-wrapper">
+                        <img src="../carousel/mantenimiento.webp" alt="Cuidados para uñas acrílicas">
+                    </div>
+                </div>
 
-                <label for="estilo">¿Qué estilo te gusta más?</label>
-                <select id="estilo" name="estilo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="natural">Natural</option>
-                    <option value="colorido">Colorido y llamativo</option>
-                    <option value="elegante">Elegante y minimalista</option>
-                    <option value="decorado">Con decoraciones y brillos</option>
-                </select>
+                <div class="cuidados-lista">
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Evita el contacto prolongado con agua</h3>
+                            <p>El agua puede debilitar el acrílico. Usa guantes al lavar platos o limpiar con productos
+                                químicos.</p>
+                        </div>
+                    </div>
 
-                <label for="forma">¿Prefieres una forma específica?</label>
-                <select id="forma" name="forma" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="almendradas">Almendradas</option>
-                    <option value="cuadradas">Cuadradas</option>
-                    <option value="ovaladas">Ovaladas</option>
-                    <option value="stiletto">Stiletto</option>
-                </select>
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Usa guantes para tareas del hogar</h3>
+                            <p>Protege tus uñas de químicos agresivos y posibles golpes durante las tareas domésticas.
+                            </p>
+                        </div>
+                    </div>
 
-                <label for="metodo">¿Qué método prefieres?</label>
-                <select id="metodo" name="metodo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="acrilica">Uñas Acrilicas</option>
-                    <option value="gel_acrilico">Uñas de gel</option>
-                    <option value="manicura_rusa">Manicura rusa</option>
-                    <option value="decoracion3d">Decoración 3D</option>
-                    <option value="press_on">Press On (uñas adhesivas)</option>
-                    <option value="asesoria">No estoy seguro/a, quiero asesoría</option>
-                </select>
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Aplica aceite de cutículas regularmente</h3>
+                            <p>Mantén tus cutículas hidratadas para evitar resequedad y mejorar la apariencia general.
+                            </p>
+                        </div>
+                    </div>
 
-                <label for="fecha">¿Cuándo te gustaría tu cita?</label>
-                <input type="datetime-local" id="fecha" name="fecha" class="date-input">
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>No las uses como herramientas</h3>
+                            <p>Evita usar tus uñas para abrir latas, rascar superficies o como destornillador
+                                improvisado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <button type="submit" class="cta-button">Reservar mi cita</button>
-            </form>
 
+
+        <hr class="separator">
+
+        <!--Seccion pedir cita-->
+
+        <h2 id="pedirCita">¿A qué esperas?</h2>
+
+        <div class="booking-wrapper">
+            <button id="show-booking-btn" class="cta-button">Reserva tu cita ya</button>
+
+            <div id="booking-system" class="hidden">
+                <div class="booking-system">
+                    <div class="booking-header">
+                        <button id="close-button" class="close-button">
+                            &times; <!-- Ícono "X" -->
+                        </button>
+                        <h2>Reserva tu cita</h2>
+                        <p>Elige el servicio, fecha y hora que prefieras</p>
+                    </div>
+
+                    <div class="booking-container">
+                        <!-- Paso 1: Selección de servicio -->
+                        <div class="booking-step active" id="step-service">
+                            <h3>1. Selecciona tu servicio</h3>
+                            <div class="service-options">
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Uñas Acrílicas</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="manicura">
+                                    <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                                    <h4>Manicura</h4>
+                                    <p>45 min · 25€</p>
+                                </div>
+                                <div class="service-card" data-service="pedicura">
+                                    <div class="service-icon"><i class="fas fa-shoe-prints"></i></div>
+                                    <h4>Pedicura</h4>
+                                    <p>50 min · 30€</p>
+                                </div>
+                                <div class="service-card" data-service="diseno">
+                                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                                    <h4>Diseño Especial</h4>
+                                    <p>90 min · 45€</p>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="next-step" data-next="step-date">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2: Selección de fecha -->
+                        <div class="booking-step" id="step-date">
+                            <h3>2. Selecciona la fecha</h3>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button class="prev-month"><i class="fas fa-chevron-left"></i></button>
+                                    <h4 id="current-month">Abril 2025</h4>
+                                    <button class="next-month"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="calendar-grid">
+                                    <div class="calendar-day-header">Lun</div>
+                                    <div class="calendar-day-header">Mar</div>
+                                    <div class="calendar-day-header">Mié</div>
+                                    <div class="calendar-day-header">Jue</div>
+                                    <div class="calendar-day-header">Vie</div>
+                                    <div class="calendar-day-header">Sáb</div>
+                                    <div class="calendar-day-header">Dom</div>
+                                    <!-- Los días se generarán con JavaScript -->
+                                    <div class="calendar-day disabled">29</div>
+                                    <div class="calendar-day disabled">30</div>
+                                    <div class="calendar-day disabled">31</div>
+                                    <div class="calendar-day">1</div>
+                                    <div class="calendar-day">2</div>
+                                    <div class="calendar-day available">3</div>
+                                    <div class="calendar-day available">4</div>
+                                    <!-- Más días... -->
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-service">Atrás</button>
+                                <button class="next-step" data-next="step-time">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3: Selección de hora -->
+                        <div class="booking-step" id="step-time">
+                            <h3>3. Selecciona la hora</h3>
+                            <div class="time-slots">
+                                <button class="time-slot">10:00</button>
+                                <button class="time-slot">11:00</button>
+                                <button class="time-slot unavailable">12:00</button>
+                                <button class="time-slot">13:00</button>
+                                <button class="time-slot">16:00</button>
+                                <button class="time-slot">17:00</button>
+                                <button class="time-slot">18:00</button>
+                                <button class="time-slot">19:00</button>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-date">Atrás</button>
+                                <button class="next-step" data-next="step-info">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4: Información personal -->
+                        <div class="booking-step" id="step-info">
+                            <h3>4. Tus datos</h3>
+                            <div class="info-form">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre completo</label>
+                                    <input type="text" id="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="tel" id="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios (opcional)</label>
+                                    <textarea id="comentarios"></textarea>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-time">Atrás</button>
+                                <button class="confirm-booking">Confirmar reserva</button>
+                            </div>
+                        </div>
+
+                        <!-- Confirmación -->
+                        <div class="booking-step" id="step-confirmation">
+                            <div class="confirmation-message">
+                                <div class="confirmation-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>¡Reserva confirmada!</h3>
+                                <p>Hemos enviado los detalles a tu correo electrónico.</p>
+                                <div class="booking-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Servicio:</span>
+                                        <span class="summary-value" id="summary-service">Uñas Acrílicas</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Fecha:</span>
+                                        <span class="summary-value" id="summary-date">3 de Abril, 2025</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Hora:</span>
+                                        <span class="summary-value" id="summary-time">11:00</span>
+                                    </div>
+                                </div>
+                                <button class="new-booking">Hacer otra reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
     </div>
 
 
@@ -151,15 +399,6 @@
                 </path>
             </svg>
         </button>
-    </div>
-
-    <div id="resumenModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>📅 Resumen de tu Cita</h2>
-            <p id="resumenTexto"></p>
-            <button id="confirmarReserva">Confirmar</button>
-        </div>
     </div>
 
 </body>

@@ -389,7 +389,7 @@ $(function () {
             $(this).hide(); // Oculta el botón
             $('#booking-system')
                 .removeClass('hidden')
-                .addClass('visible')
+                .addClass('visible') // Fuerza el display inicial
                 .css('display', 'block'); // Fuerza el display inicial
         });
     });
@@ -404,10 +404,69 @@ $(function () {
 
             $('#show-booking-btn').show(); // Muestra el botón nuevamente
         });
-        
+
+    });
+
+    $(document).ready(function() {
+        const $testimonioContainer = $('.testimonio-container');
+        const $testimonios = $('.testimonio');
+        const $prevButton = $('.testimonios-prev');
+        const $nextButton = $('.testimonios-next');
+        let currentIndex = 0;
+        const testimoniosPerView = 2; // Mostrar 2 testimonios a la vez
+        const totalSlides = Math.ceil($testimonios.length / testimoniosPerView);
+    
+        // Configuración inicial
+        function setupSlider() {
+            // Asegurarse de que todos los testimonios tengan la misma altura
+            let maxHeight = 0;
+            $testimonios.each(function() {
+                const height = $(this).outerHeight();
+                if (height > maxHeight) {
+                    maxHeight = height;
+                }
+            });
+            
+            // Aplicar la misma altura a todos los testimonios
+            $testimonios.height(maxHeight);
+            
+            // Mostrar los primeros testimonios como activos
+            updateActiveTestimonios();
+        }
+    
+        function updateActiveTestimonios() {
+            $testimonios.removeClass('active');
+            for (let i = 0; i < testimoniosPerView; i++) {
+                const index = (currentIndex * testimoniosPerView + i) % $testimonios.length;
+                $testimonios.eq(index).addClass('active');
+            }
+        }
+    
+        function showTestimonios(index) {
+            const slideWidth = 100 / testimoniosPerView;
+            $testimonioContainer.css('transform', `translateX(-${index * slideWidth * testimoniosPerView}%)`);
+            updateActiveTestimonios();
+        }
+    
+        function nextTestimonio() {
+            currentIndex = (currentIndex + 1) % Math.ceil($testimonios.length / testimoniosPerView);
+            showTestimonios(currentIndex);
+        }
+    
+        function prevTestimonio() {
+            currentIndex = (currentIndex - 1 + Math.ceil($testimonios.length / testimoniosPerView)) % Math.ceil($testimonios.length / testimoniosPerView);
+            showTestimonios(currentIndex);
+        }
+    
+        $nextButton.on('click', nextTestimonio);
+        $prevButton.on('click', prevTestimonio);
+    
+        // Inicializar el slider
+        setupSlider();
+        showTestimonios(currentIndex);
     });
     
-    
+
 
 
 

@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="../css-servicios/manicurarusa.css">
+    <link rel="stylesheet" href="../servicios/servicios.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/scripts/script.js"></script>
+    <script src="/scripts/script.js" defer></script>
 
 </head>
 
@@ -20,99 +21,437 @@
 
 <body>
 
-    <!--
-    <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
-    -->
-
     <div class="container">
 
         <header id="top">
 
             <h1>Subi Nail Studio</h1>
 
+            <!-- Abrir y cerrar menú en movil -->
             <button id="abrir" class="abrir-menu" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
             <nav class="nav" id="nav">
                 <button class="cerrar-menu" id="cerrar" aria-label="Cerrar menú"><i class="bi bi-x-lg"></i></button>
                 <ul class="nav-list">
                     <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#pressOn">Novedades</a></li>
+                    <li><a href="#cuidados-section">Cuidados</a></li>
+                    <li><a href="#testimonios">Reseñas</a></li>
                     <li><a href="#pedirCita">Cita</a></li>
                 </ul>
             </nav>
 
         </header>
+        <!-- Sección de uñas acrílicas -->
+        <section class="cta-section">
+            <h2>Uñas Acrílicas de Alta Calidad</h2>
+            <div class="decorative-line"></div>
+            <div class="cta-container">
+                <div class="cta-text">
+                    <p>Las uñas acrílicas son una de las opciones más populares para lucir unas manos perfectas y
+                        cuidadas. Este tipo de uñas artificiales se realizan con un polvo acrílico que se mezcla con un
+                        líquido especial para crear una masa moldeable que se aplica sobre la uña natural.</p>
+                    <p>Una vez seca, se lima y se pule para darle forma y brillo. Las uñas acrílicas son muy resistentes
+                        y duraderas, por lo que son ideales para aquellas personas que quieren lucir unas uñas perfectas
+                        durante más tiempo.</p>
+                </div>
+                <img src="/carousel/3.webp" alt="Uñas acrílicas de diseño" class="cta-image">
+            </div>
+        </section>
 
-
-        <h2 id="servicios">Servicios</h2>
-
-
-
-
-        <hr class="separator">
-        <h2 id="pedirCita">Reserva tu cita ahora</h2>
-
-        <div class="cta-section-form">
-
-            <form class="form-cita" id="formulario">
-                <label for="ocasion">¿Para qué ocasión necesitas tus uñas?</label>
-                <select id="ocasion" name="ocasion" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="dia_a_dia">Para el día a día</option>
-                    <option value="evento">Para un evento especial</option>
-                    <option value="nuevo">Solo quiero algo nuevo y diferente</option>
-                </select>
-
-                <label for="estilo">¿Qué estilo te gusta más?</label>
-                <select id="estilo" name="estilo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="natural">Natural</option>
-                    <option value="colorido">Colorido y llamativo</option>
-                    <option value="elegante">Elegante y minimalista</option>
-                    <option value="decorado">Con decoraciones y brillos</option>
-                </select>
-
-                <label for="forma">¿Prefieres una forma específica?</label>
-                <select id="forma" name="forma" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="almendradas">Almendradas</option>
-                    <option value="cuadradas">Cuadradas</option>
-                    <option value="ovaladas">Ovaladas</option>
-                    <option value="stiletto">Stiletto</option>
-                </select>
-
-                <label for="metodo">¿Qué método prefieres?</label>
-                <select id="metodo" name="metodo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="acrilica">Uñas Acrilicas</option>
-                    <option value="gel_acrilico">Uñas de gel</option>
-                    <option value="manicura_rusa">Manicura rusa</option>
-                    <option value="decoracion3d">Decoración 3D</option>
-                    <option value="press_on">Press On (uñas adhesivas)</option>
-                    <option value="asesoria">No estoy seguro/a, quiero asesoría</option>
-                </select>
-
-                <label for="fecha">¿Cuándo te gustaría tu cita?</label>
-                <input type="datetime-local" id="fecha" name="fecha" class="date-input">
-
-                <button type="submit" class="cta-button">Reservar mi cita</button>
-            </form>
-
+        <!-- Sección de carrusel -->
+        <div class="carousel">
+            <div class="image-container">
+                <!-- Imágenes originales -->
+                <img src="../carousel/1.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/2.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/3.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/4.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/5.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/6.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/7.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/8.webp" alt="Uñas Acrílicas">
+                <!-- Duplicado de las primeras imágenes -->
+                <img src="../carousel/1.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/2.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/3.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/4.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/5.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/6.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/7.webp" alt="Uñas Acrílicas">
+                <img src="../carousel/8.webp" alt="Uñas Acrílicas">
+            </div>
         </div>
 
+        <!-- Sección de cuidados para uñas acrílicas -->
+        <section class="cuidados-section" id="cuidados-section">
+            <div class="cuidados-header">
+                <h2>Cuidados para tus uñas acrílicas</h2>
+                <div class="decorative-line"></div>
+            </div>
 
+            <div class="cuidados-container">
+                <div class="cuidados-imagen">
+                    <div class="imagen-wrapper">
+                        <img src="../carousel/mantenimiento.webp" alt="Cuidados para uñas acrílicas">
+                    </div>
+                </div>
+
+                <div class="cuidados-lista">
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Evita el contacto prolongado con agua</h3>
+                            <p>El agua puede debilitar el acrílico. Usa guantes al lavar platos o limpiar con productos
+                                químicos.</p>
+                        </div>
+                    </div>
+
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Usa guantes para tareas del hogar</h3>
+                            <p>Protege tus uñas de químicos agresivos y posibles golpes durante las tareas domésticas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-oil-can"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>Aplica aceite de cutículas regularmente</h3>
+                            <p>Mantén tus cutículas hidratadas para evitar resequedad y mejorar la apariencia general.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="cuidado-item">
+                        <div class="cuidado-icono">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="cuidado-texto">
+                            <h3>No las uses como herramientas</h3>
+                            <p>Evita usar tus uñas para abrir latas, rascar superficies o como destornillador
+                                improvisado.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de preguntas frecuentes -->
+        <section class="faq-section">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="decorative-line"></div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Cuánto duran las uñas acrílicas?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Las uñas acrílicas suelen durar entre 2 y 3 semanas con el cuidado adecuado. Para mantenerlas
+                            en perfecto estado, recomendamos programar retoques cada 2-3 semanas dependiendo del
+                            crecimiento de tus uñas naturales.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Es doloroso el proceso de aplicación?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, el proceso no es doloroso. Puede haber una ligera sensación de presión durante la
+                            aplicación, pero nuestras profesionales trabajan con cuidado para asegurar tu comodidad en
+                            todo momento.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Las uñas acrílicas dañan mis uñas naturales?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Cuando son aplicadas y retiradas correctamente por profesionales, las uñas acrílicas no
+                            deberían dañar tus uñas naturales. En nuestro salón utilizamos productos de alta calidad y
+                            técnicas adecuadas para proteger la salud de tus uñas.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-icon">+</span>
+                        <h3>¿Puedo realizar mis actividades normales con uñas acrílicas?</h3>
+                    </div>
+                    <div class="faq-answer">
+                        <p>¡Por supuesto! Las uñas acrílicas son muy resistentes y te permitirán realizar la mayoría de
+                            tus actividades diarias sin problemas. Solo recomendamos tener precaución con actividades
+                            que puedan ejercer mucha presión sobre las uñas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios -->
+        <section class="testimonios" id="testimonios">
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+            <div class="decorative-line"></div>
+            <div class="testimonios-carousel">
+                <button class="testimonios-prev" aria-label="Testimonios"><i class="fas fa-chevron-left"></i></button>
+                <div class="testimonio-container">
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="María G." loading="lazy">
+                        </div>
+                        <p>"¡Me encantaron mis uñas! Duran muchísimo y el diseño es precioso."</p>
+                        <p class="cliente">- María G.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="Laura S." loading="lazy">
+                        </div>
+                        <p>"El servicio es excelente y las uñas quedan perfectas. Volveré seguro."</p>
+                        <p class="cliente">- Laura S.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="Ana P." loading="lazy">
+                        </div>
+                        <p>"Las uñas acrílicas me duraron más de 3 semanas sin ningún problema. ¡Increíble calidad!"</p>
+                        <p class="cliente">- Ana P.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/hombreProfile.png" alt="Carlos M." loading="lazy">
+                        </div>
+                        <p>"Primera vez que me hago un arreglo de uñas y la experiencia fue genial. Muy profesionales."
+                        </p>
+                        <p class="cliente">- Carlos M.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="Sofía R." loading="lazy">
+                        </div>
+                        <p>"El diseño personalizado que me hicieron superó todas mis expectativas. ¡Son unas artistas!"
+                        </p>
+                        <p class="cliente">- Sofía R.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="Elena T." loading="lazy">
+                        </div>
+                        <p>"Llevo años probando diferentes salones y por fin encontré el perfecto. La calidad es
+                            insuperable."</p>
+                        <p class="cliente">- Elena T.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/hombreProfile.png" alt="Javier L." loading="lazy">
+                        </div>
+                        <p>"Mi esposa me recomendó este lugar y quedé impresionado. Ambiente agradable y resultados
+                            profesionales."</p>
+                        <p class="cliente">- Javier L.</p>
+                    </div>
+
+                    <div class="testimonio">
+                        <div class="cliente-foto">
+                            <img src="/imagenes/mujerProfile.png" alt="Lucía D." loading="lazy">
+                        </div>
+                        <p>"Las uñas acrílicas resistieron incluso mis vacaciones en la playa. ¡Totalmente recomendado!"
+                        </p>
+                        <p class="cliente">- Lucía D.</p>
+                    </div>
+
+                </div>
+                <button class="testimonios-next" aria-label="Testimonios"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <hr class="separator">
+
+        <!--Seccion pedir cita-->
+        <div class="booking-wrapper">
+            <h2 id="pedirCita">¿A qué esperas?</h2>
+            <div class="decorative-line"></div>
+            <button id="show-booking-btn" class="cta-button-cita">Reserva tu cita ya</button>
+
+            <div id="booking-system" class="hidden">
+                <div class="booking-system">
+                    <div class="booking-header">
+                        <button id="close-button" class="close-button">
+                            &times; <!-- Ícono "X" -->
+                        </button>
+                        <h2>Reserva tu cita</h2>
+                        <p>Elige el servicio, fecha y hora que prefieras</p>
+                    </div>
+
+                    <div class="booking-container">
+                        <!-- Paso 1: Selección de servicio -->
+                        <div class="booking-step active" id="step-service" data-step="1">
+                            <h3>1. Selecciona tu servicio</h3>
+                            <div class="service-options">
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Uñas Acrílicas</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="manicura">
+                                    <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                                    <h4>Manicura</h4>
+                                    <p>45 min · 25€</p>
+                                </div>
+                                <div class="service-card" data-service="press_on">
+                                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                                    <h4>Press On</h4>
+                                    <p>50 min · 30€</p>
+                                </div>
+                                <div class="service-card" data-service="diseno">
+                                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                                    <h4>Diseño Especial</h4>
+                                    <p>90 min · 45€</p>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="next-step" data-next="step-date" data-step="1">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2: Selección de fecha -->
+                        <div id="date-selection" class="booking-step" data-step="2">
+                            <h3>2. Selecciona una fecha</h3>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button id="prev-month">&lt;</button>
+                                    <span id="current-month"></span>
+                                    <button id="next-month">&gt;</button>
+                                </div>
+                                <div class="calendar-grid">
+                                    <!-- Los días de la semana y los días del mes se generarán dinámicamente con JavaScript -->
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-date">Atrás</button>
+                                <button class="next-step" data-next="step-info" data-step="2">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3: Selección de hora -->
+                        <div class="booking-step" id="step-time" data-step="3">
+                            <h3>3. Selecciona la hora</h3>
+                            <div class="time-slots">
+                                <button class="time-slot">10:00</button>
+                                <button class="time-slot">11:00</button>
+                                <button class="time-slot unavailable">12:00</button>
+                                <button class="time-slot">13:00</button>
+                                <button class="time-slot">16:00</button>
+                                <button class="time-slot">17:00</button>
+                                <button class="time-slot">18:00</button>
+                                <button class="time-slot">19:00</button>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-date">Atrás</button>
+                                <button class="next-step" data-next="step-info" data-step="3">Continuar</button>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4: Información personal -->
+                        <div class="booking-step" id="step-info" data-step="4">
+                            <h3>4. Tus datos</h3>
+                            <div class="info-form">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre completo</label>
+                                    <input type="text" id="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="tel" id="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios (opcional)</label>
+                                    <textarea id="comentarios"></textarea>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-time">Atrás</button>
+                                <button class="confirm-booking" data-step="4">Confirmar reserva</button>
+                            </div>
+                        </div>
+
+                        <!-- Confirmación -->
+                        <div class="booking-step" id="step-confirmation">
+                            <div class="confirmation-message">
+                                <div class="confirmation-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>¡Reserva confirmada!</h3>
+                                <p>Hemos enviado los detalles a tu correo electrónico.</p>
+                                <div class="booking-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Servicio:</span>
+                                        <span class="summary-value" id="summary-service">Uñas Acrílicas</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Fecha:</span>
+                                        <span class="summary-value" id="summary-date">3 de Abril, 2025</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Hora:</span>
+                                        <span class="summary-value" id="summary-time">11:00</span>
+                                    </div>
+                                </div>
+                                <button class="new-booking">Hacer otra reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h3>Subi Nail Studio</h3>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Bilbao, España</p>
+                        <p><i class="fas fa-phone"></i> +34 666 66 66 66</p>
+                        <p><i class="fas fa-envelope"></i> info@nailstudio.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <p>© 2025 Subi Nail Studio. Todos los derechos reservados.</p>
+                    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+                </div>
+            </div>
+        </footer>
     </div>
 
 
-    <div class="footer">
-        <p>Bilbao, España | +34 666 66 66 66 | info@nailstudio.com</p>
-    </div>
 
 
     <div class="volver-arriba" id="volver-arriba">
-        <!--<a href="#top">Volver Arriba‎ ‎ ‎ <i class="bi bi-chevron-double-up" aria-hidden="true"></i></a>-->
         <button class="button-volver-arriba">
             <svg class="svgIcon" viewBox="0 0 384 512">
                 <path
@@ -120,15 +459,6 @@
                 </path>
             </svg>
         </button>
-    </div>
-
-    <div id="resumenModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>📅 Resumen de tu Cita</h2>
-            <p id="resumenTexto"></p>
-            <button id="confirmarReserva">Confirmar</button>
-        </div>
     </div>
 
 </body>

@@ -576,63 +576,135 @@ $(function () {
      * Seccion testimonios
      * 
      *******************************************************************************/
-
     $(document).ready(function () {
         const $testimonioContainer = $('.testimonio-container');
         const $testimonios = $('.testimonio');
         const $prevButton = $('.testimonios-prev');
         const $nextButton = $('.testimonios-next');
         let currentIndex = 0;
-        const testimoniosPerView = 2;
-        const totalSlides = Math.ceil($testimonios.length / testimoniosPerView);
+        let testimoniosPerView = window.innerWidth < 768 ? 1 : 2;
+        let prevWindowWidth = window.innerWidth;
+        const tabletMinWidth = 768;
+        const tabletMaxWidth = 1024;
 
         // Configuración inicial
         function setupSlider() {
-            let maxHeight = 0;
-            $testimonios.each(function () {
-                const height = $(this).outerHeight();
-                if (height > maxHeight) {
-                    maxHeight = height;
-                }
-            });
+            $testimonios.css('flex', `0 0 ${100 / testimoniosPerView}%`);
+            $testimonios.css('min-width', `${100 / testimoniosPerView}%`);
 
-            // Aplicar la misma altura a todos los testimonios
-            $testimonios.height(maxHeight);
-
-            // Mostrar los primeros testimonios como activos
+            // Mostrar los testimonios activos
             updateActiveTestimonios();
         }
 
         function updateActiveTestimonios() {
             $testimonios.removeClass('active');
             for (let i = 0; i < testimoniosPerView; i++) {
-                const index = (currentIndex * testimoniosPerView + i) % $testimonios.length;
+                const index = (currentIndex + i) % $testimonios.length;
                 $testimonios.eq(index).addClass('active');
             }
         }
 
         function showTestimonios(index) {
-            const slideWidth = 100 / testimoniosPerView;
-            $testimonioContainer.css('transform', `translateX(-${index * slideWidth * testimoniosPerView}%)`);
+            currentIndex = index;
+
+            // Obtener el ancho del contenedor y de cada testimonio
+            const containerWidth = $(".testimonios-carousel").width() - 120;
+            const testimonioWidth = $testimonios.first().outerWidth(true);
+
+            // Calcular el offset para centrar los testimonios
+            let offset;
+
+            if (window.innerWidth <= 1024) {
+                // Para móvil - centrar el único testimonio visible
+                offset = (index * testimonioWidth) + 10;
+            } else {
+                // Para escritorio - centrar los dos testimonios visibles
+                offset = (index * testimonioWidth) + 20;
+            }
+
+            $testimonioContainer.css('transform', `translateX(-${offset}px)`);
+
             updateActiveTestimonios();
         }
 
         function nextTestimonio() {
-            currentIndex = (currentIndex + 1) % Math.ceil($testimonios.length / testimoniosPerView);
-            showTestimonios(currentIndex);
+            const maxIndex = $testimonios.length - testimoniosPerView;
+            if (currentIndex < maxIndex) {
+                showTestimonios(currentIndex + 1);
+            } else {
+                // Transición suave al volver al principio
+                $testimonioContainer.css('transition', 'none');
+                showTestimonios(0);
+                setTimeout(() => {
+                    $testimonioContainer.css('transition', 'transform 0.5s ease');
+                }, 50);
+            }
         }
 
         function prevTestimonio() {
-            currentIndex = (currentIndex - 1 + Math.ceil($testimonios.length / testimoniosPerView)) % Math.ceil($testimonios.length / testimoniosPerView);
-            showTestimonios(currentIndex);
+            if (currentIndex > 0) {
+                showTestimonios(currentIndex - 1);
+            } else {
+                // Transición suave al ir al final
+                $testimonioContainer.css('transition', 'none');
+                showTestimonios($testimonios.length - testimoniosPerView);
+                setTimeout(() => {
+                    $testimonioContainer.css('transition', 'transform 0.5s ease');
+                }, 50);
+            }
         }
 
+        // Función para detectar si estamos en vista de tablet
+        function isTabletView() {
+            return window.innerWidth >= tabletMinWidth && window.innerWidth < tabletMaxWidth;
+        }
+
+        // Función para reiniciar el carrusel completamente
+        function resetCarousel() {
+            $testimonioContainer.finish();
+
+            currentIndex = 0;
+
+            setupSlider();
+
+            $testimonioContainer.css('transition', 'none');
+            showTestimonios(0);
+
+            setTimeout(() => {
+                $testimonioContainer.css('transition', 'transform 0.5s ease');
+            }, 100);
+        }
+
+        // Event listeners para los botones
         $nextButton.on('click', nextTestimonio);
         $prevButton.on('click', prevTestimonio);
 
+        // Escuchar el evento resize de la ventana - versión mejorada
+        $(window).on('resize', function () {
+            const currentWidth = window.innerWidth;
+            const newTestimoniosPerView = currentWidth < 768 ? 1 : 2;
+            const wasTablet = (prevWindowWidth >= tabletMinWidth && prevWindowWidth < tabletMaxWidth);
+            const isTablet = isTabletView();
+
+            if (newTestimoniosPerView !== testimoniosPerView ||
+                (wasTablet && !isTablet) || (!wasTablet && isTablet)) {
+
+                testimoniosPerView = newTestimoniosPerView;
+                resetCarousel();
+            }
+
+            prevWindowWidth = currentWidth;
+        });
+
         // Inicializar el slider
         setupSlider();
-        showTestimonios(currentIndex);
+        showTestimonios(0);
+
+        // Asegurarse de que el carrusel esté correctamente posicionado al cargar la página
+        $(window).on('load', function () {
+            resetCarousel();
+        });
     });
+
 
 });

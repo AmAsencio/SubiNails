@@ -14,18 +14,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/scripts/script.js" defer></script>
-
+    
 </head>
 
 
 
 <body>
-
-    <!--
-    <div id="loading-screen">
-        <div class="loader"></div>
-    </div>
-    -->
 
     <div class="container">
 
@@ -206,7 +200,7 @@
 
         <!-- Sección de Testimonios -->
         <section class="testimonios" id="testimonios">
-            <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+            <h2 class="section-title">Lo que dicen nuestros clientes</h2>
             <div class="decorative-line"></div>
             <div class="testimonios-carousel">
                 <button class="testimonios-prev"><i class="fas fa-chevron-left"></i></button>
@@ -306,7 +300,7 @@
 
                     <div class="booking-container">
                         <!-- Paso 1: Selección de servicio -->
-                        <div class="booking-step active" id="step-service">
+                        <div class="booking-step active" id="step-service" data-step="1">
                             <h3>1. Selecciona tu servicio</h3>
                             <div class="service-options">
                                 <div class="service-card" data-service="unas-acrilicas">
@@ -331,12 +325,12 @@
                                 </div>
                             </div>
                             <div class="step-buttons">
-                                <button class="next-step" data-next="step-date">Continuar</button>
+                                <button class="next-step" data-next="step-date" data-step="1">Continuar</button>
                             </div>
                         </div>
 
                         <!-- Paso 2: Selección de fecha -->
-                        <div class="booking-step" id="step-date">
+                        <div class="booking-step" id="step-date" data-step="2">
                             <h3>2. Selecciona la fecha</h3>
                             <div class="calendar-container">
                                 <div class="calendar-header">
@@ -365,12 +359,12 @@
                             </div>
                             <div class="step-buttons">
                                 <button class="prev-step" data-prev="step-service">Atrás</button>
-                                <button class="next-step" data-next="step-time">Continuar</button>
+                                <button class="next-step" data-next="step-time" data-step="2">Continuar</button>
                             </div>
                         </div>
 
                         <!-- Paso 3: Selección de hora -->
-                        <div class="booking-step" id="step-time">
+                        <div class="booking-step" id="step-time" data-step="3">
                             <h3>3. Selecciona la hora</h3>
                             <div class="time-slots">
                                 <button class="time-slot">10:00</button>
@@ -384,12 +378,12 @@
                             </div>
                             <div class="step-buttons">
                                 <button class="prev-step" data-prev="step-date">Atrás</button>
-                                <button class="next-step" data-next="step-info">Continuar</button>
+                                <button class="next-step" data-next="step-info" data-step="3">Continuar</button>
                             </div>
                         </div>
 
                         <!-- Paso 4: Información personal -->
-                        <div class="booking-step" id="step-info">
+                        <div class="booking-step" id="step-info" data-step="4">
                             <h3>4. Tus datos</h3>
                             <div class="info-form">
                                 <div class="form-group">
@@ -411,7 +405,7 @@
                             </div>
                             <div class="step-buttons">
                                 <button class="prev-step" data-prev="step-time">Atrás</button>
-                                <button class="confirm-booking">Confirmar reserva</button>
+                                <button class="confirm-booking" data-step="4">Confirmar reserva</button>
                             </div>
                         </div>
 

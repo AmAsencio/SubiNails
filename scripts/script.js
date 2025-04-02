@@ -1,9 +1,16 @@
 $(function () {
+
+    /*******************************************************************************
+     * 
+     * Seccion servicios
+     * 
+     *******************************************************************************/
+
     const servicesData = [
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasacrilicas.webp", title: "UÃ±as AcrÃ­licas", price: "Desde $50", direccion: "unasacrilicas" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasgel.webp", title: "UÃ±as de Gel", price: "Desde $30", direccion: "unasgel" },
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasacrilicas.webp", title: "Unas Acri­licas", price: "Desde $50", direccion: "unasacrilicas" },
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasgel.webp", title: "Unas de Gel", price: "Desde $30", direccion: "unasgel" },
         { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/manicurarusa.webp", title: "Manicura Rusa", price: "Desde $40", direccion: "manicurarusa" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/decoracion3d.webp", title: "DecoraciÃ³n 3D", price: "Desde $70", direccion: "decoracion3d" }
+        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/decoracion3d.webp", title: "Decoracion 3D", price: "Desde $70", direccion: "decoracion3d" }
     ];
 
     const $servicesContainer = $("#services-container");
@@ -21,7 +28,7 @@ $(function () {
                         <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                         </span>
-                        <span class="button-text">Leer mÃ¡s</span>
+                        <span class="button-text">Leer mas</span>
                     </a>
                 </div>
             </div>
@@ -29,38 +36,43 @@ $(function () {
         $servicesContainer.append(serviceElement);
     });
 
-    // Funcion que hace que sea visible el menu en escritorio 
+    /*******************************************************************************
+     * 
+     * Seccion menu
+     * 
+     *******************************************************************************/
+
     function ajustarMenu() {
         if ($(window).width() > 750) {
-            $("#nav").css("display", "block"); // Asegurar que el menÃº sea visible en escritorio
+            $("#nav").css("display", "block"); // Asegurar que el menu sea visible en escritorio
         } else {
-            $("#nav").css("display", "none"); // Ocultar menÃº en mÃ³vil
+            $("#nav").css("display", "none"); // Ocultar menu en movil
         }
     }
 
-    // Detectar cambios de tamaÃ±o de pantalla
+    // Detectar cambios de tamano de pantalla
     $(window).on('resize', function () {
         ajustarMenu();
     });
 
-    // Ejecutar la funciÃ³n cuando la pÃ¡gina cargue
+    // Ejecutar la funcion cuando la pagina cargue
     ajustarMenu();
 
-    // Efecto al pasar el ratÃ³n sobre el botÃ³n de abrir menÃº
+    // Efecto al pasar el raton sobre el boton de abrir menu
     $('#abrir').on("mouseenter", function () {
         $(this).css("transform", "scale(1.2)");
     }).on("mouseleave", function () {
         $(this).css("transform", "scale(1)");
     });
 
-    // Efecto al pasar el ratÃ³n sobre el botÃ³n de cerrar menÃº
+    // Efecto al pasar el raton sobre el boton de cerrar menu
     $('#cerrar').on("mouseenter", function () {
         $(this).css("transform", "scale(1.2)");
     }).on("mouseleave", function () {
         $(this).css("transform", "scale(1)");
     });
 
-    // Abrir el menÃº (solo en mÃ³vil)
+    // Abrir el menu (solo en movil)
     $('#abrir').on('click', function () {
         if ($(window).width() <= 767) {
             $('#nav').stop(true, true).css('left', '-100%').show().animate({ left: '0' }, 300);
@@ -69,7 +81,7 @@ $(function () {
         }
     });
 
-    // Cerrar el menÃº (solo en mÃ³vil)
+    // Cerrar el menu (solo en moviles)
     $('#cerrar').on('click', function () {
         if ($(window).width() <= 767) {
             $('#nav').animate({ left: '-100%' }, 300, function () {
@@ -91,9 +103,14 @@ $(function () {
         }
     });
 
-    // Detectar cuando hacer scroll y mostrar/ocultar el botÃ³n volver-arriba
+    /*******************************************************************************
+     * 
+     * Seccion volver arriba
+     * 
+     *******************************************************************************/
+
     $(window).on('scroll', function () {
-        // Solo en mÃ³viles y cuando el menÃº NO estÃ© abierto
+        // Solo en moviles y cuando el menu NO esta abierto
         if ($(this).scrollTop() > 300 && !$('body').hasClass('menu-abierto') && $(window).width() <= 1024) {
             $('.volver-arriba').stop(true).fadeIn(300);
         } else {
@@ -101,7 +118,7 @@ $(function () {
         }
     });
 
-    // Volver arriba cuando se haga click en el botÃ³n
+    // Volver arriba cuando se haga click en el boton
     $('.volver-arriba').on('click', function () {
         $('html, body').animate({ scrollTop: 0 }, 300);
     });
@@ -109,7 +126,7 @@ $(function () {
     //Hacer que el boton este siempre oculto hasta que se realice un scroll
     $('#volver-arriba').hide();
 
-    // BotÃ³n volver arriba
+    // Boton volver arriba
     $(window).on('scroll', function () {
         if ($(this).scrollTop() > 300) {
             $('#volver-arriba').stop(true).fadeIn();
@@ -123,43 +140,57 @@ $(function () {
         $('html, body').stop(true).animate({ scrollTop: 0 }, 500);
     });
 
-    // Cabecera siempre arriba con sticky
+    /*******************************************************************************
+     * 
+     * Sticky header
+     * 
+     *******************************************************************************/
+
     var header = $("#top");
     $(window).on("scroll", function () {
         header.toggleClass("sticky", $(window).scrollTop() > 0);
     });
 
+
+    /*******************************************************************************
+     * 
+     * Seccion slider de imagenes
+     * 
+     *******************************************************************************/
+
     let currentIndex = 0;
     const images = $(".slider-image");
     const totalImages = images.length;
 
-    // FunciÃ³n para mostrar la imagen actual
     function showImage(index) {
         const newTransformValue = -index * 100 + "%";
         $(".slider-container").css("transform", "translateX(" + newTransformValue + ")");
     }
 
-    // Mostrar la siguiente imagen
     $("#next").on("click", function () {
         currentIndex = (currentIndex + 1) % totalImages;
         showImage(currentIndex);
     });
 
-    // Mostrar la imagen anterior
     $("#prev").on("click", function () {
         currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         showImage(currentIndex);
     });
 
-    // Mostrar la primera imagen al cargar
     showImage(currentIndex);
+
+    /*******************************************************************************
+     * 
+     * Seccion press-on movil
+     * 
+     *******************************************************************************/
 
     function actualizarTexto() {
         const isMobile = $(window).width() <= 767;
 
         $('#cta-description').html(isMobile
-            ? 'Este sistema te permite reutilizar tus uÃ±as personalizadas en minutos con una aplicaciÃ³n adhesiva.<br><br> Â¡ContÃ¡ctanos para mÃ¡s info!'
-            : 'Este novedoso sistema de diseÃ±o personalizado de uÃ±as permitirÃ¡ la reutilizaciÃ³n de las mismas rÃ¡pidamente con una aplicaciÃ³n adhesiva cuando y donde quieras en cuestiÃ³n de minutos.<br><br>Â¡Contacta con nosotros y dinos lo que quieres para darte un presupuesto!<br><br>'
+            ? 'Este sistema te permite reutilizar tus unas personalizadas en minutos con una aplicacion adhesiva.<br><br> Â¡Contactanos para mas info!'
+            : 'Este novedoso sistema de diseno personalizado de unas permitira la reutilizacion de las mismas rapidamente con una aplicacion adhesiva cuando y donde quieras en cuestion de minutos.<br><br>Â¡Contacta con nosotros y dinos lo que quieres para darte un presupuesto!<br><br>'
         );
 
         $('#cta-whatsapp').html('<i class="bi bi-whatsapp"></i> +34 666 66 66 66');
@@ -170,9 +201,13 @@ $(function () {
     actualizarTexto();
     $(window).on('resize', actualizarTexto);
 
-    //Codigo para copiar numero o mail
+    
+    /*******************************************************************************
+     * 
+     * Seccion de contacto copiar
+     * 
+     *******************************************************************************/
 
-    // Detectar el clic en el pÃ¡rrafo de WhatsApp y copiar el texto
     $('#cta-whatsapp').on('click', function () {
         // Obtener el texto dentro del elemento
         var textToCopy = $(this).text().trim();
@@ -186,7 +221,7 @@ $(function () {
         document.execCommand('copy');
         tempInput.remove(); // Eliminar el input temporal
 
-        // Mostrar una alerta o mensaje de confirmaciÃ³n
+        // Mostrar una alerta o mensaje de confirmacion
         alert('Â¡Texto copiado al portapapeles!');
     });
 
@@ -203,98 +238,16 @@ $(function () {
         document.execCommand('copy');
         tempInput.remove(); // Eliminar el input temporal
 
-        // Mostrar una alerta o mensaje de confirmaciÃ³n
+        // Mostrar una alerta o mensaje de confirmacion
         alert('Â¡Texto copiado al portapapeles!');
     });
 
-    //formulario vacio error
 
-    $(document).on('submit', 'form', function (event) {
-        let ocasion = $('#ocasion').val();
-        let estilo = $('#estilo').val();
-        let forma = $('#forma').val();
-        let metodo = $('#metodo').val();
-        let fecha = $('#fecha').val();
-
-        if (!ocasion || !estilo || !forma || !metodo || !fecha) {
-            event.preventDefault(); // Evita el envÃ­o del formulario
-            alert("Por favor, completa todos los campos antes de reservar.");
-        }
-    });
-
-    $(document).on('submit', '#formulario', function (event) {
-        event.preventDefault(); // Detiene el envÃ­o del formulario
-
-        let valido = true;
-
-        $('.validable').each(function () {
-            if (!$(this).val()) {
-                $(this).css('border', '2px solid red');
-                valido = false;
-            } else {
-                $(this).css('border', '2px solid #f8a5c2');
-            }
-        });
-
-        let fecha = $('#fecha').val();
-        if (!fecha) {
-            $('#fecha').css('border', '2px solid red');
-            valido = false;
-        } else {
-            $('#fecha').css('border', '2px solid #f8a5c2');
-        }
-
-        if (!valido) {
-            return; // Si hay errores, no mostramos el modal
-        }
-
-        // Obtener los valores seleccionados
-        let ocasion = $('#ocasion').val();
-        let estilo = $('#estilo').val();
-        let forma = $('#forma').val();
-        let metodo = $('#metodo').val();
-        let fechaSeleccionada = $('#fecha').val();
-
-        // Crear el mensaje de resumen
-        let mensajeResumen = `
-            <br><br>
-            <strong>Fecha:</strong> ${fechaSeleccionada} <br><br>
-            <strong>OcasiÃ³n:</strong> ${ocasion} <br><br>
-            <strong>Estilo:</strong> ${estilo} <br><br>
-            <strong>Forma:</strong> ${forma} <br><br>
-            <strong>MÃ©todo:</strong> ${metodo} <br><br>
-        `;
-
-        // Mostrar el resumen en el modal
-        $('#resumenTexto').html(mensajeResumen);
-        $('#resumenModal').fadeIn();
-
-        // Limpiar eventos previos y manejar la confirmaciÃ³n correctamente
-        $('#confirmarReserva').off('click').on('click', function () {
-            $('#resumenModal').fadeOut(); // Cierra el modal
-
-            // Esperar a que el modal se cierre completamente antes de enviar el formulario
-            setTimeout(function () {
-                document.getElementById("formulario").submit();
-            }, 300);
-        });
-
-        // Para cerrar el modal al hacer clic en la "X"
-        $('.close').off('click').on('click', function () {
-            $('#resumenModal').fadeOut();
-        });
-
-        // Cerrar el modal si el usuario hace clic fuera de Ã©l
-        $(window).off('click').on('click', function (e) {
-            if ($(e.target).is('#resumenModal')) {
-                $('#resumenModal').fadeOut();
-            }
-        });
-    });
-
-    /**
+    /*******************************************************************************
+     * 
      * Seccion preguntas frecuentes
-     */
+     * 
+     *******************************************************************************/
 
     $(document).ready(function () {
         $('.faq-question').on('click', function () {
@@ -311,129 +264,252 @@ $(function () {
         });
     });
 
-    /*
+    /*******************************************************************************
+     * 
      * Seccion para pedir cita
-     */
-    $(document).ready(function () {
-        // SelecciÃ³n de servicio
-        $('.service-card').on('click', function () {
-            $('.service-card').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-        // SelecciÃ³n de fecha en el calendario
-        $('.calendar-day:not(.disabled)').on('click', function () {
-            $('.calendar-day').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-        // SelecciÃ³n de hora
-        $('.time-slot:not(.unavailable)').on('click', function () {
-            $('.time-slot').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-        // NavegaciÃ³n entre pasos
-        $('.next-step').on('click', function () {
-            var currentStep = $(this).closest('.booking-step');
-            var nextStepId = $(this).data('next');
-
-            currentStep.removeClass('active');
-            $('#' + nextStepId).addClass('active');
-        });
-
-        $('.prev-step').on('click', function () {
-            var currentStep = $(this).closest('.booking-step');
-            var prevStepId = $(this).data('prev');
-
-            currentStep.removeClass('active');
-            $('#' + prevStepId).addClass('active');
-        });
-
-        // ConfirmaciÃ³n de reserva
-        $('.confirm-booking').on('click', function () {
-            // AquÃ­ irÃ­a la lÃ³gica para enviar los datos al servidor
-
-            // Mostrar resumen de la reserva
-            $('#summary-service').text($('.service-card.selected h4').text());
-            $('#summary-date').text($('.calendar-day.selected').text() + ' de Abril, 2025');
-            $('#summary-time').text($('.time-slot.selected').text());
-
-            // Mostrar confirmaciÃ³n
-            $('.booking-step').removeClass('active');
-            $('#step-confirmation').addClass('active');
-        });
-
-        // Nueva reserva
-        $('.new-booking').on('click', function () {
-            $('.booking-step').removeClass('active');
-            $('#step-service').addClass('active');
-
-            // Resetear selecciones
-            $('.service-card').removeClass('selected');
-            $('.calendar-day').removeClass('selected');
-            $('.time-slot').removeClass('selected');
-            $('#nombre').val('');
-            $('#email').val('');
-            $('#telefono').val('');
-            $('#comentarios').val('');
-        });
-    });
-
-    /*
-    * Seccion pedir cita
-    */
+     * 
+     *******************************************************************************/
 
     $(document).ready(function () {
         $('#show-booking-btn').on('click', function () {
-            $(this).hide(); // Oculta el botón
+            $(this).hide(); 
             $('#booking-system')
                 .removeClass('hidden')
-                .addClass('visible') // Fuerza el display inicial
-                .css('display', 'block'); // Fuerza el display inicial
+                .addClass('visible') 
+                .css('display', 'block');
         });
     });
 
+    // Función para cerrar la sección de pedir cita
     $(document).ready(function () {
-        // Función para cerrar la sección de pedir cita
         $('#close-button').on('click', function () {
             $('#booking-system')
                 .removeClass('visible')
                 .addClass('hidden')
-                .css('display', 'none'); // Oculta la sección
+                .css('display', 'none');
 
-            $('#show-booking-btn').show(); // Muestra el botón nuevamente
+            $('#show-booking-btn').show();
         });
 
     });
 
-    $(document).ready(function() {
+    // Inicializar el sistema de reserva
+    $(document).ready(function () {
+        $('.booking-step').each(function () {
+            if ($(this).find('.error-message').length === 0) {
+                $(this).prepend('<div class="error-message"></div>');
+            }
+        });
+
+        // Manejar la selección de servicios
+        $(document).on('click', '.service-card', function () {
+            $('.service-card').removeClass('selected');
+            $(this).addClass('selected');
+            // Ocultar mensaje de error cuando se selecciona un servicio
+            $(this).closest('.booking-step').find('.error-message').hide();
+        });
+
+        // Manejar la selección de fechas
+        $(document).on('click', '.calendar-day:not(.disabled)', function () {
+            $('.calendar-day').removeClass('selected');
+            $(this).addClass('selected');
+            // Ocultar mensaje de error cuando se selecciona una fecha
+            $(this).closest('.booking-step').find('.error-message').hide();
+        });
+
+        // Manejar la selección de horas
+        $(document).on('click', '.time-slot:not(.unavailable)', function () {
+            $('.time-slot').removeClass('selected');
+            $(this).addClass('selected');
+            // Ocultar mensaje de error cuando se selecciona una hora
+            $(this).closest('.booking-step').find('.error-message').hide();
+        });
+
+        // Ocultar mensajes de error al escribir en los campos del formulario
+        $(document).on('input', '.info-form input, .info-form textarea', function () {
+            let allFilled = true;
+            $('.info-form input, .info-form textarea').each(function () {
+                if ($(this).val().trim() === '') {
+                    allFilled = false;
+                    return false;
+                }
+            });
+
+            if (allFilled) {
+                $(this).closest('.booking-step').find('.error-message').hide();
+            }
+        });
+
+        // Función de validación para cada paso
+        function validateStep(step) {
+            let isValid = true;
+            let errorMessage = "";
+
+            if (step === 1) {
+                if (!$('.service-card.selected').length) {
+                    isValid = false;
+                    errorMessage = "Debes elegir un servicio.";
+                }
+            } else if (step === 2) {
+                if (!$('.calendar-day.selected').length) {
+                    isValid = false;
+                    errorMessage = "Debes elegir una fecha.";
+                }
+            } else if (step === 3) {
+                if (!$('.time-slot.selected').length) {
+                    isValid = false;
+                    errorMessage = "Debes elegir una hora.";
+                }
+            } else if (step === 4) {
+                let allFilled = true;
+                $('.info-form input').not('[name="comments"]').each(function () {
+                    if ($(this).val().trim() === '') {
+                        allFilled = false;
+                        return false; 
+                    }
+                });
+
+                if (!allFilled) {
+                    isValid = false;
+                    errorMessage = "Debes rellenar todos los campos obligatorios.";
+                }
+            }
+
+            // Mostrar u ocultar mensaje de error
+            const $errorMessage = $(`.booking-step[data-step="${step}"] .error-message`);
+            if (!isValid) {
+                $errorMessage.text(errorMessage).show();
+            } else {
+                $errorMessage.hide();
+            }
+
+            return isValid;
+        }
+
+        $('.next-step').off('click');
+
+        $(document).on('click', '.next-step', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const currentStep = parseInt($(this).closest('.booking-step').data('step'));
+
+            const isValid = validateStep(currentStep);
+
+            if (isValid) {
+                $(`.booking-step[data-step="${currentStep}"]`).removeClass('active');
+                $(`.booking-step[data-step="${currentStep + 1}"]`).addClass('active');
+            }
+            // Si no es válido, el mensaje de error ya se muestra y NO avanzamos
+        });
+
+        // Manejar el clic en los botones "Anterior"
+        $(document).on('click', '.prev-step', function (e) {
+            e.preventDefault();
+            const currentStep = parseInt($(this).closest('.booking-step').data('step'));
+
+            $(`.booking-step[data-step="${currentStep}"]`).removeClass('active');
+            $(`.booking-step[data-step="${currentStep - 1}"]`).addClass('active');
+        });
+
+        $(document).ready(function () {
+            function validateForm() {
+                let isValid = true;
+                let errorMessage = "";
+    
+                $('.info-form input').not('[name="comentarios"], [id="comentarios"]').each(function () {
+                    if ($(this).val().trim() === '') {
+                        isValid = false;
+                        return false; 
+                    }
+                });
+    
+                if (!isValid) {
+                    errorMessage = "Debes rellenar todos los campos obligatorios.";
+                    $('#step-info .error-message').text(errorMessage).show();
+                } else {
+                    $('#step-info .error-message').hide();
+                }
+    
+                return isValid;
+            }
+    
+            // Confirmación de reserva
+            $('.confirm-booking').on('click', function (e) {
+                e.preventDefault();
+    
+                // Validar el formulario antes de confirmar
+                if (validateForm()) {
+                    $('#summary-service').text($('.service-card.selected h4').text());
+                    $('#summary-date').text($('.calendar-day.selected').text() + ' de Abril, 2025');
+                    $('#summary-time').text($('.time-slot.selected').text());
+    
+                    // Mostrar confirmación
+                    $('.booking-step').removeClass('active');
+                    $('#step-confirmation').addClass('active');
+                }
+                // Si no es válido, el mensaje de error ya se muestra y NO avanzamos
+            });
+    
+            // Nueva reserva
+            $('.new-booking').on('click', function () {
+                $('.booking-step').removeClass('active');
+                $('#step-service').addClass('active');
+    
+                // Resetear selecciones
+                $('.service-card').removeClass('selected');
+                $('.calendar-day').removeClass('selected');
+                $('.time-slot').removeClass('selected');
+                $('#nombre').val('');
+                $('#email').val('');
+                $('#telefono').val('');
+                $('#comentarios').val('');
+    
+                // Ocultar mensajes de error
+                $('.error-message').hide();
+            });
+    
+            // Ocultar mensajes de error al escribir en los campos del formulario
+            $('.info-form input').on('input', function () {
+                if (validateForm()) {
+                    $('#step-info .error-message').hide();
+                }
+            });
+        });
+    });
+
+    /*******************************************************************************
+     * 
+     * Seccion testimonios
+     * 
+     *******************************************************************************/
+
+    $(document).ready(function () {
         const $testimonioContainer = $('.testimonio-container');
         const $testimonios = $('.testimonio');
         const $prevButton = $('.testimonios-prev');
         const $nextButton = $('.testimonios-next');
         let currentIndex = 0;
-        const testimoniosPerView = 2; // Mostrar 2 testimonios a la vez
+        const testimoniosPerView = 2;
         const totalSlides = Math.ceil($testimonios.length / testimoniosPerView);
-    
+
         // Configuración inicial
         function setupSlider() {
-            // Asegurarse de que todos los testimonios tengan la misma altura
             let maxHeight = 0;
-            $testimonios.each(function() {
+            $testimonios.each(function () {
                 const height = $(this).outerHeight();
                 if (height > maxHeight) {
                     maxHeight = height;
                 }
             });
-            
+
             // Aplicar la misma altura a todos los testimonios
             $testimonios.height(maxHeight);
-            
+
             // Mostrar los primeros testimonios como activos
             updateActiveTestimonios();
         }
-    
+
         function updateActiveTestimonios() {
             $testimonios.removeClass('active');
             for (let i = 0; i < testimoniosPerView; i++) {
@@ -441,69 +517,29 @@ $(function () {
                 $testimonios.eq(index).addClass('active');
             }
         }
-    
+
         function showTestimonios(index) {
             const slideWidth = 100 / testimoniosPerView;
             $testimonioContainer.css('transform', `translateX(-${index * slideWidth * testimoniosPerView}%)`);
             updateActiveTestimonios();
         }
-    
+
         function nextTestimonio() {
             currentIndex = (currentIndex + 1) % Math.ceil($testimonios.length / testimoniosPerView);
             showTestimonios(currentIndex);
         }
-    
+
         function prevTestimonio() {
             currentIndex = (currentIndex - 1 + Math.ceil($testimonios.length / testimoniosPerView)) % Math.ceil($testimonios.length / testimoniosPerView);
             showTestimonios(currentIndex);
         }
-    
+
         $nextButton.on('click', nextTestimonio);
         $prevButton.on('click', prevTestimonio);
-    
+
         // Inicializar el slider
         setupSlider();
         showTestimonios(currentIndex);
     });
-    
-
-
-
-
-
-
-
-
-
-    /** 
-    // Loader de la pagina web
-    $(document).ready(function () {
-        $('body').addClass('loading');
-    
-        $(window).on('load', function () {
-            console.log("PÃ¡gina completamente cargada, ocultando loader...");
-            
-            setTimeout(function () {
-                $('#loading-screen').fadeOut(300, function () {
-                    $(this).remove();
-                    $('body').removeClass('loading');
-                    console.log("Loader eliminado correctamente.");
-                });
-            }, 500);
-        });
-    
-        // Si despuÃ©s de 1.5 segundos el loader sigue visible, lo forzamos a desaparecer
-        setTimeout(function () {
-            if ($('#loading-screen').is(':visible')) {
-                console.log("Loader aÃºn visible, forzando eliminaciÃ³n...");
-                $('#loading-screen').fadeOut(300).promise().done(function () {
-                    $(this).remove();
-                    $('body').removeClass('loading');
-                    console.log("Loader eliminado a la fuerza.");
-                });
-            }
-        }, 1500); //segundos
-    });
-    */
 
 });

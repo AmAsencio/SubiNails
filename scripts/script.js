@@ -201,7 +201,7 @@ $(function () {
     actualizarTexto();
     $(window).on('resize', actualizarTexto);
 
-    
+
     /*******************************************************************************
      * 
      * Seccion de contacto copiar
@@ -272,10 +272,10 @@ $(function () {
 
     $(document).ready(function () {
         $('#show-booking-btn').on('click', function () {
-            $(this).hide(); 
+            $(this).hide();
             $('#booking-system')
                 .removeClass('hidden')
-                .addClass('visible') 
+                .addClass('visible')
                 .css('display', 'block');
         });
     });
@@ -365,7 +365,7 @@ $(function () {
                 $('.info-form input').not('[name="comments"]').each(function () {
                     if ($(this).val().trim() === '') {
                         allFilled = false;
-                        return false; 
+                        return false;
                     }
                 });
 
@@ -416,46 +416,46 @@ $(function () {
             function validateForm() {
                 let isValid = true;
                 let errorMessage = "";
-    
+
                 $('.info-form input').not('[name="comentarios"], [id="comentarios"]').each(function () {
                     if ($(this).val().trim() === '') {
                         isValid = false;
-                        return false; 
+                        return false;
                     }
                 });
-    
+
                 if (!isValid) {
                     errorMessage = "Debes rellenar todos los campos obligatorios.";
                     $('#step-info .error-message').text(errorMessage).show();
                 } else {
                     $('#step-info .error-message').hide();
                 }
-    
+
                 return isValid;
             }
-    
+
             // Confirmación de reserva
             $('.confirm-booking').on('click', function (e) {
                 e.preventDefault();
-    
+
                 // Validar el formulario antes de confirmar
                 if (validateForm()) {
                     $('#summary-service').text($('.service-card.selected h4').text());
                     $('#summary-date').text($('.calendar-day.selected').text() + ' de Abril, 2025');
                     $('#summary-time').text($('.time-slot.selected').text());
-    
+
                     // Mostrar confirmación
                     $('.booking-step').removeClass('active');
                     $('#step-confirmation').addClass('active');
                 }
                 // Si no es válido, el mensaje de error ya se muestra y NO avanzamos
             });
-    
+
             // Nueva reserva
             $('.new-booking').on('click', function () {
                 $('.booking-step').removeClass('active');
                 $('#step-service').addClass('active');
-    
+
                 // Resetear selecciones
                 $('.service-card').removeClass('selected');
                 $('.calendar-day').removeClass('selected');
@@ -464,11 +464,11 @@ $(function () {
                 $('#email').val('');
                 $('#telefono').val('');
                 $('#comentarios').val('');
-    
+
                 // Ocultar mensajes de error
                 $('.error-message').hide();
             });
-    
+
             // Ocultar mensajes de error al escribir en los campos del formulario
             $('.info-form input').on('input', function () {
                 if (validateForm()) {
@@ -476,6 +476,99 @@ $(function () {
                 }
             });
         });
+
+        /*******************************************************************************
+         * 
+         * Funcionalidad del calendario para selección de fecha
+         * 
+         *******************************************************************************/
+
+        let currentDate = new Date();
+
+        function updateCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const today = new Date();
+
+            // Actualizar el texto del mes actual
+            $('#current-month').text(currentDate.toLocaleString('default', { month: 'long', year: 'numeric' }));
+
+            // Limpiar y regenerar los días del calendario
+            $('.calendar-grid').empty();
+
+            // Agregar los encabezados de los días de la semana
+            const weekdays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            weekdays.forEach(day => {
+                $('.calendar-grid').append(`<div class="calendar-day-header">${day}</div>`);
+            });
+
+            // Agregar celdas vacías para los días antes del primer día del mes
+            for (let i = 0; i < firstDay.getDay(); i++) {
+                $('.calendar-grid').append('<div class="calendar-day disabled"></div>');
+            }
+
+            // Agregar los días del mes
+            for (let i = 1; i <= lastDay.getDate(); i++) {
+                const currentDateCheck = new Date(year, month, i);
+                const dayOfWeek = currentDateCheck.getDay();
+
+                // Verificar si es fin de semana (0 = domingo, 6 = sábado) o si es un día pasado
+                const isWeekend = (dayOfWeek === 0 || dayOfWeek === 6);
+                const isPastDay = currentDateCheck < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+                // Determinar la clase CSS basada en las condiciones
+                let dayClass = 'calendar-day';
+                if (isWeekend || isPastDay) {
+                    dayClass += ' disabled';
+                } else {
+                    dayClass += ' available';
+                }
+
+                // Crear el elemento del día
+                const dayElement = $(`<div class="${dayClass}">${i}</div>`);
+
+                // Marcar el día actual
+                if (currentDateCheck.toDateString() === today.toDateString()) {
+                    dayElement.addClass('today');
+                }
+
+                $('.calendar-grid').append(dayElement);
+            }
+        }
+
+        // Selección de día
+        $(document).on('click', '.calendar-day.available', function () {
+            $('.calendar-day').removeClass('selected');
+            $(this).addClass('selected');
+        });
+
+
+        $(document).ready(function () {
+            // Inicializar el calendario cuando se cargue la página
+            updateCalendar();
+
+            // Botón de mes anterior
+            $('#prev-month').click(function () {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                updateCalendar();
+            });
+
+            // Botón de mes siguiente
+            $('#next-month').click(function () {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                updateCalendar();
+            });
+
+            // Selección de día
+            $(document).on('click', '.calendar-day.available', function () {
+                $('.calendar-day').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+
+
     });
 
     /*******************************************************************************

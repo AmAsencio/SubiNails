@@ -5,6 +5,11 @@
     font-family: sans-serif;
 }
 
+html {
+    scroll-padding-top: 8.5rem;
+    scroll-behavior: smooth;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -21,6 +26,25 @@ body.menu-abierto .volver-arriba {
 
 h2 {
     scroll-margin-top: 115px;
+    margin-bottom: 25px;
+    margin: 0 0 15px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
 }
 
 body:not(.menu-abierto) .volver-arriba {
@@ -100,7 +124,8 @@ body:not(.menu-abierto) .volver-arriba {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #fde2e4; /* Color de fondo */
+    background-color: #fde2e4;
+    /* Color de fondo */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -219,7 +244,7 @@ body.loading {
     transition: all ease-in-out 0.3s;
 }
 
-.nav-list li{
+.nav-list li {
     transition: all ease-in-out 0.3s;
 }
 
@@ -244,8 +269,7 @@ body {
 .separator {
     border: none;
     border-top: 2px solid #f8a5c2;
-    margin: 10px 20px 20px;
-
+    margin: 80px 20px 80px;
 }
 
 /* Contenedor */
@@ -270,6 +294,17 @@ h1 {
 }
 
 /* Servicios y contenido */
+.services-container {
+    margin: auto;
+    padding: 50px 30px;
+    background: linear-gradient(135deg, #fff5f8 0%, #fde2e4 100%);
+    border-radius: 20px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(184, 59, 94, 0.1);
+    margin-bottom: 100px; 
+    margin-top: 100px;
+}
+
 .services {
     display: grid;
     gap: 10px;
@@ -282,14 +317,15 @@ h1 {
     justify-content: space-between;
     margin: 10px 0;
     padding: 10px;
-    background: #fff5f8;
+    background-color: #fff5f8;
     border-radius: 20px;
     transition: transform 0.3s ease;
 }
 
 .service:hover {
     transform: scale(1.03);
-    background: #f8e3ea;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-bottom: 4px solid #ff6584;
 }
 
 .service img {
@@ -411,9 +447,33 @@ a:hover .button-text {
 
 /* Estilos generales */
 .cta-section {
-    text-align: center;
-    padding: 30px;
+    margin: auto;
+    padding: 50px 30px;
+    background: linear-gradient(135deg, #fff5f8 0%, #fde2e4 100%);
+    border-radius: 20px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(184, 59, 94, 0.1);
 }
+
+.pressOn-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pressOn-header h2 {
+    font-size: 32px;
+    color: #b83b5e;
+    margin-bottom: 15px;
+}
+
+.decorative-line {
+    height: 3px;
+    width: 80px;
+    background: linear-gradient(to right, #ff6584, #f8a5c2);
+    margin: 0 auto;
+    border-radius: 3px;
+}
+
 
 .cta-section-form {
     text-align: center;
@@ -427,6 +487,13 @@ a:hover .button-text {
     justify-content: space-between;
     align-items: center;
     margin: auto;
+}
+
+.cuidado-item {
+    display: flex;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    border-left: 4px solid transparent;
 }
 
 /* Contenido de texto */
@@ -506,7 +573,6 @@ a:hover .button-text {
     padding: 10px;
     border-radius: 20px;
     width: fit-content;
-    background-color: #fff5f8;
 
 }
 
@@ -552,16 +618,6 @@ a:hover .button-text {
 
 .cta-small:hover {
     background: #e14b6a;
-}
-
-/* Estilos del pie de página */
-.footer {
-    background: #f8a5c2;
-    padding: 30px;
-    color: white;
-    font-size: 14px;
-    text-align: center;
-    position: relative;
 }
 
 /* Estilos para el slider */
@@ -652,70 +708,613 @@ a:hover .button-text {
     outline: none;
 }
 
-/*Formulario pedir cita*/
-label {
-    font-weight: bold;
+/*******************************************************************************
+ * 
+ * Seccion pedir cita
+ * 
+ *******************************************************************************/
+
+.booking-system {
+    max-width: 800px;
+    margin: 80px auto;
+    background: linear-gradient(135deg, #fff5f8 0%, #fde2e4 100%);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(184, 59, 94, 0.15);
+    overflow: hidden;
+}
+
+.booking-wrapper {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.booking-header {
+    position: relative;
+    background: linear-gradient(135deg, #ff6584 0%, #e14b6a 100%);
+    color: white;
+    padding: 35px 30px;
+    text-align: center;
+}
+
+.booking-header h2 {
+    margin: 0 0 15px;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.booking-header p {
+    margin: 0;
+    opacity: 0.95;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+.booking-container {
+    padding: 30px;
+    position: relative;
+    min-height: 400px;
+}
+
+
+.booking-step {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.booking-step.active {
     display: block;
-    margin: 15px 0 5px;
 }
 
-select,
-.date-input {
-    width: 40%;
+.booking-step h3 {
+    color: #b83b5e;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 22px;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion seleccion de servicio
+ * 
+ *******************************************************************************/
+.service-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.pressOn-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pressOn-header h2 {
+    font-size: 32px;
+    color: #b83b5e;
+    margin-bottom: 15px;
+}
+
+.service-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card.selected {
+    border-color: #ff6584;
+    background-color: #fff5f8;
+}
+
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff6584 0%, #f8a5c2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 24px;
+}
+
+.service-card h4 {
+    margin: 0 0 10px;
+    color: #b83b5e;
+}
+
+.service-card p {
+    margin: 0;
+    color: #666;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion calendario
+ * 
+ *******************************************************************************/
+.calendar-container {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    color: #b83b5e;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day-header {
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    padding: 8px 0;
+}
+
+.calendar-day {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.calendar-day.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.calendar-day.available {
+    background-color: #e6f7ff;
+}
+
+.calendar-day.selected {
+    background-color: #ff6584;
+    color: white;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion seleccion de hora
+ * 
+ *******************************************************************************/
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.time-slot {
+    padding: 12px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-slot:hover {
+    border-color: #ff6584;
+}
+
+.time-slot.selected {
+    background-color: #ff6584;
+    color: white;
+    border-color: #ff6584;
+}
+
+.time-slot.unavailable {
+    background-color: #f5f5f5;
+    color: #aaa;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion informacion del cliente
+ * 
+ *******************************************************************************/
+.info-form {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
     padding: 10px;
-    border: 2px solid #f8a5c2;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    margin-top: 5px;
+    font-size: 16px;
 }
 
-.form-cita {
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff6584;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 101, 132, 0.2);
+}
+
+/*******************************************************************************
+ * 
+ * Seccion botones de navegacion
+ * 
+ *******************************************************************************/
+.step-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prev-step,
+.next-step,
+.confirm-booking,
+.new-booking {
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.prev-step {
+    background-color: white;
+    color: #666;
+    border: 1px solid #ddd;
+}
+
+.next-step,
+.confirm-booking,
+.new-booking {
+    background-color: #ff6584;
+    color: white;
+    border: none;
+}
+
+.next-step:hover,
+.confirm-booking:hover,
+.new-booking:hover {
+    background-color: #e55a77;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion confirmacion de cita
+ * 
+ *******************************************************************************/
+.confirmation-message {
+    text-align: center;
+    padding: 20px;
+}
+
+.confirmation-icon {
+    font-size: 80px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.booking-summary {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    text-align: left;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.summary-label {
+    font-weight: bold;
+    color: #666;
+}
+
+.summary-value {
+    color: #b83b5e;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 34px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-button:hover {
+    color: #ff1a1a;
+}
+
+.close-button:active {
+    color: #e60000;
+}
+
+.cta-button-cita {
+    background: linear-gradient(135deg, #ff6584 0%, #e14b6a 100%);
+    color: white;
+    display: inline-block;
+    width: fit-content;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px rgba(225, 75, 106, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button-cita:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(225, 75, 106, 0.4);
+}
+
+.cta-button-cita:active {
+    transform: translateY(-2px);
+}
+
+.cta-button-cita::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+
+.cta-button-cita:hover::before {
+    opacity: 1;
+    transform: rotate(45deg) translateX(50%);
+}
+
+h2 {
+    margin: 0 0 15px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 2px;
+}
+
+/*******************************************************************************
+ * 
+ * Seccion error
+ * 
+ *******************************************************************************/
+.error-message {
+    color: #e14b6a;
+    background-color: rgba(225, 75, 106, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+#booking-system.hidden {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+#booking-system.visible {
+    opacity: 1;
+    visibility: visible;
+    max-height: 2000px;
+    /* Ajusta según necesidad */
+    transition: all 0.5s ease 0.1s;
+    /* Retardo para la animación */
+}
+
+
+/*******************************************************************************
+ * 
+ * Seccion footer
+ * 
+ *******************************************************************************/
+ .footer {
+    background: linear-gradient(135deg, #f8a5c2 0%, #fde2e4 100%);
+    padding: 40px 20px;
+    margin-top: 60px;
+    box-shadow: 0 -10px 30px rgba(184, 59, 94, 0.1);
+}
+
+.footer-container {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
 }
 
-/* Estilos de la modal de cita confirmada */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
+.footer-logo h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #b83b5e;
+    margin: 0;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 400px;
-    text-align: left;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.footer-contact {
+    text-align: center;
 }
 
-.close {
-    float: right;
-    font-size: 28px;
-    cursor: pointer;
+.footer-contact p {
+    margin: 8px 0;
+    color: #555;
 }
 
-button#confirmarReserva {
-    background-color: #f8a5c2;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.footer-contact i {
+    color: #ff6584;
+    margin-right: 8px;
 }
 
-button#confirmarReserva:hover {
-    background-color: #e07a9a;
+.footer-social {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
 }
 
+.footer-social a {
+    color: #ff6584;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social a:hover {
+    transform: translateY(-5px);
+    color: #e14b6a;
+}
+
+.footer-links {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nav a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #ff6584;
+}
+
+.footer-legal {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+.footer-legal a {
+    color: #777;
+    text-decoration: none;
+}
+
+.footer-legal a:hover {
+    color: #ff6584;
+}
 
 
 /* Estilos para tablet (entre 768px y 1024px) */

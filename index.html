@@ -11,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/scripts/script.js"></script>
+    <script src="/scripts/script.js" defer></script>
 
 </head>
 
@@ -41,6 +42,7 @@
         </header>
 
         <h2>¡Mira mis proyectos!</h2>
+        <div class="decorative-line"></div>
 
         <!-- Slider de imágenes (solo visible en modo escritorio) -->
         <div class="image-slider" id="image-slider">
@@ -60,18 +62,20 @@
             <button class="next" id="next">&#10095;</button>
         </div>
 
-        <hr class="separator">
-        <h2 id="servicios">Servicios</h2>
-
-
-        <!--Contenedor de servicios traidos de componenteService.js-->
+        <div class="services-container">
+            <div class="pressOn-header">
+                <h2 id="servicios">Servicios</h2>
+                <div class="decorative-line"></div>
+            </div>
+            <!--Contenedor de servicios traidos de componenteService.js-->
         <div class="services" id="services-container"></div>
-
-        <hr class="separator">
+        </div>
 
         <section class="cta-section">
-            <h2 class="cta-title" id="pressOn">¡Novedad Press On!</h2>
-
+            <div class="pressOn-header">
+                <h2 id="pressOn">¡Novedad Press On</h2>
+                <div class="decorative-line"></div>
+            </div>
             <div class="cta-container">
 
                 <div class="cta-images" id="imgPressOn1">
@@ -100,67 +104,182 @@
 
         <hr class="separator">
 
-
-        <h2 id="pedirCita">Reserva tu cita ahora</h2>
-
         <!--Seccion pedir cita-->
-        <div class="cta-section-form">
+        <div class="booking-wrapper">
+            <h2 id="pedirCita">¿A qué esperas?</h2>
+            <div class="decorative-line"></div>
+            <button id="show-booking-btn" class="cta-button-cita">Reserva tu cita ya</button>
 
-            <form class="form-cita" id="formulario">
-                <label for="ocasion">¿Para qué ocasión necesitas tus uñas?</label>
-                <select id="ocasion" name="ocasion" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="dia_a_dia">Para el día a día</option>
-                    <option value="evento">Para un evento especial</option>
-                    <option value="nuevo">Solo quiero algo nuevo y diferente</option>
-                </select>
+            <div id="booking-system" class="hidden">
+                <div class="booking-system">
+                    <div class="booking-header">
+                        <button id="close-button" class="close-button">
+                            &times; <!-- Ícono "X" -->
+                        </button>
+                        <h2>Reserva tu cita</h2>
+                        <p>Elige el servicio, fecha y hora que prefieras</p>
+                    </div>
 
-                <label for="estilo">¿Qué estilo te gusta más?</label>
-                <select id="estilo" name="estilo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="natural">Natural</option>
-                    <option value="colorido">Colorido y llamativo</option>
-                    <option value="elegante">Elegante y minimalista</option>
-                    <option value="decorado">Con decoraciones y brillos</option>
-                </select>
+                    <div class="booking-container">
+                        <!-- Paso 1: Selección de servicio -->
+                        <div class="booking-step active" id="step-service" data-step="1">
+                            <h3>1. Selecciona tu servicio</h3>
+                            <div class="service-options">
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Uñas Acrilicas</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Uñas de gel</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+                                    <h4>Uñas con decoración 3D</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="unas-acrilicas">
+                                    <div class="service-icon"><i class="fas fa-hand-sparkles"></i></div>
+                                    <h4>Marnicura rusa</h4>
+                                    <p>60 min · 35€</p>
+                                </div>
+                                <div class="service-card" data-service="press_on">
+                                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                                    <h4>Press On</h4>
+                                    <p>50 min · 30€</p>
+                                </div>
+                                <div class="service-card" data-service="diseno">
+                                    <div class="service-icon"><i class="fas fa-magic"></i></div>
+                                    <h4>Diseño Especial</h4>
+                                    <p>90 min · 45€</p>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="next-step" data-next="step-date" data-step="1">Continuar</button>
+                            </div>
+                        </div>
 
-                <label for="forma">¿Prefieres una forma específica?</label>
-                <select id="forma" name="forma" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="almendradas">Almendradas</option>
-                    <option value="cuadradas">Cuadradas</option>
-                    <option value="ovaladas">Ovaladas</option>
-                    <option value="stiletto">Stiletto</option>
-                    <option value="indiferente">Indiferente</option>
-                </select>
+                        <!-- Paso 2: Selección de fecha -->
+                        <div id="date-selection" class="booking-step" data-step="2">
+                            <h3>2. Selecciona una fecha</h3>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button id="prev-month">&lt;</button>
+                                    <span id="current-month"></span>
+                                    <button id="next-month">&gt;</button>
+                                </div>
+                                <div class="calendar-grid">
+                                    <!-- Los días de la semana y los días del mes se generarán dinámicamente con JavaScript -->
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-date">Atrás</button>
+                                <button class="next-step" data-next="step-info" data-step="2">Continuar</button>
+                            </div>
+                        </div>
 
-                <label for="metodo">¿Qué método prefieres?</label>
-                <select id="metodo" name="metodo" class="validable">
-                    <option value="">Selecciona una opción</option>
-                    <option value="acrilica">Uñas Acrilicas</option>
-                    <option value="gel_acrilico">Uñas de gel</option>
-                    <option value="manicura_rusa">Manicura rusa</option>
-                    <option value="decoracion3d">Decoración 3D</option>
-                    <option value="press_on">Press On (uñas adhesivas)</option>
-                    <option value="asesoria">No estoy seguro/a, quiero asesoría</option>
-                </select>
+                        <!-- Paso 3: Selección de hora -->
+                        <div class="booking-step" id="step-time" data-step="3">
+                            <h3>3. Selecciona la hora</h3>
+                            <div class="time-slots">
+                                <button class="time-slot">10:00</button>
+                                <button class="time-slot">11:00</button>
+                                <button class="time-slot unavailable">12:00</button>
+                                <button class="time-slot">13:00</button>
+                                <button class="time-slot">16:00</button>
+                                <button class="time-slot">17:00</button>
+                                <button class="time-slot">18:00</button>
+                                <button class="time-slot">19:00</button>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-date">Atrás</button>
+                                <button class="next-step" data-next="step-info" data-step="3">Continuar</button>
+                            </div>
+                        </div>
 
-                <label for="fecha">¿Cuándo te gustaría tu cita?</label>
-                <input type="datetime-local" id="fecha" name="fecha" class="date-input">
+                        <!-- Paso 4: Información personal -->
+                        <div class="booking-step" id="step-info" data-step="4">
+                            <h3>4. Tus datos</h3>
+                            <div class="info-form">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre completo</label>
+                                    <input type="text" id="nombre" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Correo electrónico</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="tel" id="telefono" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comentarios">Comentarios (opcional)</label>
+                                    <textarea id="comentarios"></textarea>
+                                </div>
+                            </div>
+                            <div class="step-buttons">
+                                <button class="prev-step" data-prev="step-time">Atrás</button>
+                                <button class="confirm-booking" data-step="4">Confirmar reserva</button>
+                            </div>
+                        </div>
 
-                <button type="submit" class="cta-button">Reservar mi cita</button>
-            </form>
-
+                        <!-- Confirmación -->
+                        <div class="booking-step" id="step-confirmation">
+                            <div class="confirmation-message">
+                                <div class="confirmation-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3>¡Reserva confirmada!</h3>
+                                <p>Hemos enviado los detalles a tu correo electrónico.</p>
+                                <div class="booking-summary">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Servicio:</span>
+                                        <span class="summary-value" id="summary-service">Uñas de gel</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Fecha:</span>
+                                        <span class="summary-value" id="summary-date">3 de Abril, 2025</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Hora:</span>
+                                        <span class="summary-value" id="summary-time">11:00</span>
+                                    </div>
+                                </div>
+                                <button class="new-booking">Hacer otra reserva</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="footer">
-            <p>Bilbao, España | +34 666 66 66 66 | info@nailstudio.com</p>
-        </div>
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <h3>Subi Nail Studio</h3>
+                </div>
+                <div class="footer-info">
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Bilbao, España</p>
+                        <p><i class="fas fa-phone"></i> +34 666 66 66 66</p>
+                        <p><i class="fas fa-envelope"></i> info@nailstudio.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-legal">
+                    <p>© 2025 Subi Nail Studio. Todos los derechos reservados.</p>
+                    <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+                </div>
+            </div>
+        </footer>
     </div>
-
-
-
-
 
     <div class="volver-arriba" id="volver-arriba">
         <button class="button-volver-arriba">
@@ -172,16 +291,6 @@
         </button>
     </div>
 
-    <div id="resumenModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>📅 Resumen de tu Cita</h2>
-            <p id="resumenTexto"></p>
-            <button id="confirmarReserva">Confirmar</button>
-        </div>
-    </div>
-
 </body>
-
 
 </html>

@@ -499,13 +499,15 @@ $(function () {
             $('.calendar-grid').empty();
 
             // Agregar los encabezados de los días de la semana
-            const weekdays = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+            const weekdays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
             weekdays.forEach(day => {
                 $('.calendar-grid').append(`<div class="calendar-day-header">${day}</div>`);
             });
 
             // Agregar celdas vacías para los días antes del primer día del mes
-            for (let i = 0; i < firstDay.getDay(); i++) {
+            let startingDay = firstDay.getDay() - 1;
+            if (startingDay === -1) startingDay = 6; 
+            for (let i = 0; i < startingDay; i++) {
                 $('.calendar-grid').append('<div class="calendar-day disabled"></div>');
             }
 

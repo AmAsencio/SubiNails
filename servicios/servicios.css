@@ -384,7 +384,6 @@ body:not(.menu-abierto) .volver-arriba {
     background: #ff6584;
     color: white;
     border: none;
-    padding: 15px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -995,23 +994,30 @@ body:not(.menu-abierto) .volver-arriba {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 8px;
+    width: 100%;
+    margin: 0 auto;
 }
+
 
 .calendar-day-header {
     text-align: center;
     font-weight: bold;
     color: #666;
     padding: 8px 0;
+    display: flex;
+    justify-content: center;
 }
 
 .calendar-day {
     height: 40px;
+    width: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
+    border-radius: 100%;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin: 0 auto; 
 }
 
 .calendar-day.disabled {

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="/scripts/script.js" defer></script>
+    <script src="scripts/script.js"></script>
 
 </head>
 
@@ -34,7 +34,7 @@
                 <ul class="nav-list">
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#pressOn">Novedades</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
                     <li><a href="#pedirCita">Cita</a></li>
                 </ul>
             </nav>
@@ -47,16 +47,11 @@
         <!-- Slider de imágenes (solo visible en modo escritorio) -->
         <div class="image-slider" id="image-slider">
             <div class="slider-container">
-                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-1.webp"
-                    alt="Uñas Acrílicas" class="slider-image">
-                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-2.webp"
-                    alt="Uñas de Gel" class="slider-image">
-                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-3.webp"
-                    alt="Diseños Creativos" class="slider-image">
-                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-4.webp"
-                    alt="Diseños Simples" class="slider-image">
-                <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/imagen-slider-unas-5.webp"
-                    alt="Uñas Almond" class="slider-image">
+                <img src="./imagenes/carousel/acrilicas/8.webp" alt="Uñas Acrílicas" class="slider-image">
+                <img src="./imagenes/carousel/gel/gel-2.webp" alt="Uñas de Gel" class="slider-image">
+                <img src="./imagenes/carousel/decoracion3d/decoracion3d-1.webp" alt="Diseños Simples"
+                    class="slider-image">
+                <img src="./imagenes/carousel/manicuraRusa/manicura-rusa-4.webp" alt="Uñas Almond" class="slider-image">
             </div>
             <button class="prev" id="prev">&#10094;</button>
             <button class="next" id="next">&#10095;</button>
@@ -68,22 +63,14 @@
                 <div class="decorative-line"></div>
             </div>
             <!--Contenedor de servicios traidos de componenteService.js-->
-        <div class="services" id="services-container"></div>
+            <div class="services" id="services-container"></div>
         </div>
 
         <section class="cta-section">
-            <div class="pressOn-header">
-                <h2 id="pressOn">¡Novedad Press On</h2>
-                <div class="decorative-line"></div>
-            </div>
+            <h2 id="novedades">¡Novedad Press On!</h2>
+            <div class="decorative-line"></div>
             <div class="cta-container">
-
-                <div class="cta-images" id="imgPressOn1">
-                    <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-press-on-1.webp"
-                        alt="Producto Press On 1" class="cta-image">
-                </div>
-
-                <div class="cta-content">
+                <div class="cta-text">
                     <p class="cta-description" id="cta-description"></p>
 
                     <div class="cta-contacto-presson" id="cta-contacto-presson">
@@ -92,14 +79,8 @@
                         <p class="cta-description-mail" id="cta-mail"></p>
                     </div>
                 </div>
-
-                <div class="cta-images" id="imgPressOn2">
-                    <img src="https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/unas-press-on-2.webp"
-                        alt="Producto Press On 2" class="cta-image">
-                </div>
-
+                <img src="./imagenes/unas-press-on-1.webp" alt="Producto Press On 1" class="cta-image">
             </div>
-
         </section>
 
         <hr class="separator">
@@ -204,15 +185,15 @@
                             <h3>4. Tus datos</h3>
                             <div class="info-form">
                                 <div class="form-group">
-                                    <label for="nombre">Nombre completo</label>
+                                    <label for="nombre">Nombre completo *</label>
                                     <input type="text" id="nombre" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Correo electrónico</label>
+                                    <label for="email">Correo electrónico *</label>
                                     <input type="email" id="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="telefono">Teléfono</label>
+                                    <label for="telefono">Teléfono *</label>
                                     <input type="tel" id="telefono" required>
                                 </div>
                                 <div class="form-group">
@@ -290,6 +271,8 @@
             </svg>
         </button>
     </div>
+
+    <div id="toast-container" class="toast-container"></div>
 
 </body>
 

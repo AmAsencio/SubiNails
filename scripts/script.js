@@ -7,10 +7,10 @@ $(function () {
      *******************************************************************************/
 
     const servicesData = [
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasacrilicas.webp", title: "Unas Acri­licas", price: "Desde $50", direccion: "unasacrilicas" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/unasgel.webp", title: "Unas de Gel", price: "Desde $30", direccion: "unasgel" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/manicurarusa.webp", title: "Manicura Rusa", price: "Desde $40", direccion: "manicurarusa" },
-        { img: "https://fotos-subinails.s3.us-east-1.amazonaws.com/imagenes/servicios/decoracion3d.webp", title: "Decoracion 3D", price: "Desde $70", direccion: "decoracion3d" }
+        { img: "./imagenes/carousel/acrilicas/1.webp", title: "Unas Acri­licas", price: "Desde $50", direccion: "unasacrilicas" },
+        { img: "./imagenes/carousel/gel/gel-8.webp", title: "Unas de Gel", price: "Desde $30", direccion: "unasgel" },
+        { img: "./imagenes/carousel/manicuraRusa/manicura-rusa-5.webp", title: "Manicura Rusa", price: "Desde $40", direccion: "manicurarusa" },
+        { img: "./imagenes/carousel/decoracion3d/decoracion3d-8.webp", title: "Decoracion 3D", price: "Desde $70", direccion: "decoracion3d" }
     ];
 
     const $servicesContainer = $("#services-container");
@@ -189,8 +189,8 @@ $(function () {
         const isMobile = $(window).width() <= 767;
 
         $('#cta-description').html(isMobile
-            ? 'Este sistema te permite reutilizar tus unas personalizadas en minutos con una aplicacion adhesiva.<br><br> Â¡Contactanos para mas info!'
-            : 'Este novedoso sistema de diseno personalizado de unas permitira la reutilizacion de las mismas rapidamente con una aplicacion adhesiva cuando y donde quieras en cuestion de minutos.<br><br>Â¡Contacta con nosotros y dinos lo que quieres para darte un presupuesto!<br><br>'
+            ? 'Este sistema te permite reutilizar tus unas personalizadas en minutos con una aplicacion adhesiva.<br><br> ¡Contactanos para mas info!'
+            : 'Este novedoso sistema de diseno personalizado de unas permitira la reutilizacion de las mismas rapidamente con una aplicacion adhesiva cuando y donde quieras en cuestion de minutos.<br><br>¡Contacta con nosotros y dinos lo que quieres para darte un presupuesto!<br><br>'
         );
 
         $('#cta-whatsapp').html('<i class="bi bi-whatsapp"></i> +34 666 66 66 66');
@@ -208,40 +208,49 @@ $(function () {
      * 
      *******************************************************************************/
 
+    function showToast(message, icon) {
+        const toast = $('<div class="toast"></div>');
+
+        toast.html(`<i class="bi ${icon}"></i>${message}<div class="toast-progress"></div>`);
+
+        $('#toast-container').append(toast);
+
+        setTimeout(() => toast.addClass('show'), 10);
+
+        const progress = toast.find('.toast-progress');
+        progress.animate({ width: '100%' }, 3000);
+
+        setTimeout(() => {
+            toast.removeClass('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    }
+
     $('#cta-whatsapp').on('click', function () {
-        // Obtener el texto dentro del elemento
         var textToCopy = $(this).text().trim();
 
-        // Crear un elemento temporal para copiar el texto
         var tempInput = $('<input>');
         $('body').append(tempInput);
         tempInput.val(textToCopy).select();
 
-        // Copiar al portapapeles
         document.execCommand('copy');
-        tempInput.remove(); // Eliminar el input temporal
+        tempInput.remove();
 
-        // Mostrar una alerta o mensaje de confirmacion
-        alert('Â¡Texto copiado al portapapeles!');
+        showToast('¡Número copiado al portapapeles!', 'bi-whatsapp');
     });
 
     $('#cta-mail').on('click', function () {
-        // Obtener el texto dentro del elemento
         var textToCopy = $(this).text().trim();
 
-        // Crear un elemento temporal para copiar el texto
         var tempInput = $('<input>');
         $('body').append(tempInput);
         tempInput.val(textToCopy).select();
 
-        // Copiar al portapapeles
         document.execCommand('copy');
-        tempInput.remove(); // Eliminar el input temporal
+        tempInput.remove();
 
-        // Mostrar una alerta o mensaje de confirmacion
-        alert('Â¡Texto copiado al portapapeles!');
+        showToast('¡Email copiado al portapapeles!', 'bi-envelope-open-heart');
     });
-
 
     /*******************************************************************************
      * 
@@ -254,10 +263,8 @@ $(function () {
             var $faqItem = $(this).closest('.faq-item');
             var isActive = $faqItem.hasClass('active');
 
-            // Cerrar todos los items
             $('.faq-item').removeClass('active');
 
-            // Si no estaba activo, abrirlo
             if (!isActive) {
                 $faqItem.addClass('active');
             }
@@ -305,7 +312,6 @@ $(function () {
         $(document).on('click', '.service-card', function () {
             $('.service-card').removeClass('selected');
             $(this).addClass('selected');
-            // Ocultar mensaje de error cuando se selecciona un servicio
             $(this).closest('.booking-step').find('.error-message').hide();
         });
 
@@ -313,7 +319,6 @@ $(function () {
         $(document).on('click', '.calendar-day:not(.disabled)', function () {
             $('.calendar-day').removeClass('selected');
             $(this).addClass('selected');
-            // Ocultar mensaje de error cuando se selecciona una fecha
             $(this).closest('.booking-step').find('.error-message').hide();
         });
 
@@ -321,7 +326,6 @@ $(function () {
         $(document).on('click', '.time-slot:not(.unavailable)', function () {
             $('.time-slot').removeClass('selected');
             $(this).addClass('selected');
-            // Ocultar mensaje de error cuando se selecciona una hora
             $(this).closest('.booking-step').find('.error-message').hide();
         });
 
@@ -400,8 +404,32 @@ $(function () {
                 $(`.booking-step[data-step="${currentStep}"]`).removeClass('active');
                 $(`.booking-step[data-step="${currentStep + 1}"]`).addClass('active');
             }
-            // Si no es válido, el mensaje de error ya se muestra y NO avanzamos
         });
+
+        $('.confirm-booking').on('click', function (e) {
+            // Limpiar errores anteriores
+            $('.booking-step[data-step="4"] input[required], .booking-step[data-step="4"] textarea[required]').removeClass('input-error');
+            $('#mensajeErrorCampos').hide();
+
+            let hayError = false;
+
+            // Comprobar cada campo obligatorio
+            $('.booking-step[data-step="4"] input[required], .booking-step[data-step="4"] textarea[required]').each(function () {
+                if (!$(this).val().trim()) {
+                    $(this).addClass('input-error');
+                    hayError = true;
+                }
+            });
+
+            // Si hay error, mostrar mensaje y detener el envío
+            if (hayError) {
+                $('.booking-step[data-step="4"] .input-error').first().focus();
+                e.preventDefault();
+                return false;
+            }
+        });
+
+
 
         // Manejar el clic en los botones "Anterior"
         $(document).on('click', '.prev-step', function (e) {
@@ -438,17 +466,13 @@ $(function () {
             $('.confirm-booking').on('click', function (e) {
                 e.preventDefault();
 
-                // Validar el formulario antes de confirmar
                 if (validateForm()) {
                     $('#summary-service').text($('.service-card.selected h4').text());
                     $('#summary-date').text($('.calendar-day.selected').text() + ' de Abril, 2025');
                     $('#summary-time').text($('.time-slot.selected').text());
-
-                    // Mostrar confirmación
                     $('.booking-step').removeClass('active');
                     $('#step-confirmation').addClass('active');
                 }
-                // Si no es válido, el mensaje de error ya se muestra y NO avanzamos
             });
 
             // Nueva reserva
@@ -506,7 +530,7 @@ $(function () {
 
             // Agregar celdas vacías para los días antes del primer día del mes
             let startingDay = firstDay.getDay() - 1;
-            if (startingDay === -1) startingDay = 6; 
+            if (startingDay === -1) startingDay = 6;
             for (let i = 0; i < startingDay; i++) {
                 $('.calendar-grid').append('<div class="calendar-day disabled"></div>');
             }
@@ -591,12 +615,19 @@ $(function () {
 
         // Configuración inicial
         function setupSlider() {
-            $testimonios.css('flex', `0 0 ${100 / testimoniosPerView}%`);
-            $testimonios.css('min-width', `${100 / testimoniosPerView}%`);
+            if (window.innerWidth < 768) {
+                // Para móviles: un testimonio a la vez, ancho completo
+                $testimonios.css('flex', '0 0 100%');
+                $testimonios.css('min-width', '100%');
+            } else {
+                // Para tablets y escritorio
+                $testimonios.css('flex', `0 0 ${100 / testimoniosPerView}%`);
+                $testimonios.css('min-width', `${100 / testimoniosPerView}%`);
+            }
 
-            // Mostrar los testimonios activos
             updateActiveTestimonios();
         }
+
 
         function updateActiveTestimonios() {
             $testimonios.removeClass('active');

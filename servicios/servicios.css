@@ -87,7 +87,7 @@ body:not(.menu-abierto) .volver-arriba {
     border-top: 2px solid #f8a5c2;
     margin: 10px 20px 20px;
     margin-top: 80px;
-}
+} 
 
 /*******************************************************************************
  * 
@@ -365,7 +365,6 @@ body:not(.menu-abierto) .volver-arriba {
     margin-top: 60px;
     border-radius: 20px;
     max-width: 900px;
-    min-height: 300px;
     box-shadow: 0 10px 30px rgba(184, 59, 94, 0.1);
 }
 
@@ -712,6 +711,7 @@ body:not(.menu-abierto) .volver-arriba {
 
 .cuidado-texto {
     flex: 1;
+    text-align: left;
 }
 
 .cuidado-texto h3 {
@@ -897,6 +897,8 @@ body:not(.menu-abierto) .volver-arriba {
 
 .booking-step.active {
     display: block;
+    justify-content: center;
+    align-items: center;
 }
 
 .booking-step h3 {
@@ -1082,8 +1084,10 @@ body:not(.menu-abierto) .volver-arriba {
     background-color: white;
     border-radius: 12px;
     padding: 20px;
+    max-width: 500px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+    text-align: left;
 }
 
 .form-group {
@@ -1111,6 +1115,9 @@ body:not(.menu-abierto) .volver-arriba {
     outline: none;
     box-shadow: 0 0 0 2px rgba(255, 101, 132, 0.2);
 }
+
+
+
 
 /*******************************************************************************
  * 
@@ -1172,8 +1179,9 @@ body:not(.menu-abierto) .volver-arriba {
 .booking-summary {
     background-color: white;
     border-radius: 12px;
+    max-width: fit-content;
     padding: 20px;
-    margin: 25px 0;
+    margin: 30px auto 30px;
     text-align: left;
 }
 
@@ -1186,6 +1194,9 @@ body:not(.menu-abierto) .volver-arriba {
 .summary-label {
     font-weight: bold;
     color: #666;
+    padding: auto;
+    margin-right: 10px;
+    
 }
 
 .summary-value {
@@ -1306,6 +1317,11 @@ h2::after {
     display: none;
     animation: fadeIn 0.3s ease;
 }
+
+.input-error {
+    border: 2px solid #e14b6a !important;
+    background-color: #fff0f3;
+} 
 
 @keyframes fadeIn {
     from {
@@ -1633,14 +1649,18 @@ h2::after {
     .testimonio-container {
         flex-direction: row;
         justify-content: flex-start;
-        max-width: 350px;
-        max-height: auto;
+        max-width: 200px;
+        max-height: 400px;
     }
 
     .testimonio {
         flex: 0 0 calc(100% - 20px);
         min-width: calc(100% - 20px);
         margin: 0 10px;
+    }
+
+    .testimonio p {
+        font-size: 14px;
     }
 
     .testimonios-prev {
